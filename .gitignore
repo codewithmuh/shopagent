@@ -47,3 +47,4 @@ infra/tfplan*
 
 # Claude Code
 .claude/
+.vercel
