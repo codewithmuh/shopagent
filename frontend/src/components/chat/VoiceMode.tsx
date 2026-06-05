@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef, useCallback } from "react";
 import { useVoice } from "@/lib/useVoice";
 import type { AgentWebSocket } from "@/lib/websocket";
+import { LogoMark } from "@/components/Logo";
 
 type VoiceState = "idle" | "listening" | "thinking" | "speaking";
 
@@ -225,9 +226,7 @@ export default function VoiceMode({
 
       {/* Branding */}
       <div className="absolute top-8 left-1/2 -translate-x-1/2 flex items-center gap-2">
-        <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center text-white text-sm font-bold shadow-lg">
-          F
-        </div>
+        <LogoMark className="h-8 w-8" />
         <span className="text-white/80 font-semibold text-sm">Leo Voice</span>
       </div>
 
@@ -243,7 +242,7 @@ export default function VoiceMode({
           onClick={handleMicPress}
         >
           {/* Inner gradient */}
-          <div className="absolute inset-0 rounded-full bg-gradient-to-br from-emerald-400 via-teal-500 to-pink-500 opacity-90" />
+          <div className="absolute inset-0 rounded-full bg-gradient-to-br from-emerald-400 via-teal-500 to-emerald-600 opacity-90" />
           <div className="absolute inset-0 rounded-full bg-gradient-to-t from-transparent to-white/20" />
 
           {/* Center icon */}
@@ -277,8 +276,10 @@ export default function VoiceMode({
         )}
       </div>
 
-      {/* Product cards (shown during/after speaking) */}
-      {products.length > 0 && (voiceState === "speaking" || voiceState === "idle") && (
+      {/* Product cards — shown whenever Leo has returned products, persisting
+          through thinking/speaking/idle and the auto-relisten, so the images
+          stay visible regardless of TTS state. Cleared when a new query starts. */}
+      {products.length > 0 && (
         <div className="w-full px-4 mt-4 animate-voice-fade-in">
           <div className="flex gap-3 overflow-x-auto pb-2 justify-center voice-products-scroll">
             {products.map((p) => (

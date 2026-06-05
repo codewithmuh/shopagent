@@ -4,6 +4,7 @@ import { useState, useEffect, useRef, useCallback } from "react";
 import { AgentWebSocket, type WSMessage } from "@/lib/websocket";
 import { useVoice } from "@/lib/useVoice";
 import VoiceMode from "@/components/chat/VoiceMode";
+import { LogoMark } from "@/components/Logo";
 
 // ─── Types ────────────────────────────────────────────────────────
 type ProductData = {
@@ -205,9 +206,7 @@ function MessageBubble({ msg, likedProducts, onLike }: { msg: Message; likedProd
     <div
       className={`flex gap-2.5 ${msg.isHistory ? "" : "animate-fade-in-up"}`}
     >
-      <div className="w-7 h-7 rounded-lg bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center text-white text-[10px] font-bold flex-shrink-0 mt-0.5 shadow-sm">
-        L
-      </div>
+      <LogoMark className="h-7 w-7 flex-shrink-0 mt-0.5" />
       <div className="flex flex-col max-w-[80%] sm:max-w-[70%]">
         <div
           className={`px-4 py-2.5 rounded-2xl rounded-tl-md text-[14px] leading-relaxed ${
@@ -487,19 +486,17 @@ export default function DemoChatPage() {
   }
 
   const quickActions = [
-    { text: "Show me trending products", icon: "~" },
-    { text: "I need wireless headphones", icon: "H" },
-    { text: "What's under $50?", icon: "$" },
-    { text: "Help me find a gift", icon: "G" },
+    { text: "Show me trending products", icon: "🔥" },
+    { text: "I need wireless headphones", icon: "🎧" },
+    { text: "What's under $50?", icon: "💸" },
+    { text: "Help me find a gift", icon: "🎁" },
   ];
 
   // ─── Empty State ────────────────────────────────────────────
   const emptyState = (
     <div className="flex flex-col items-center justify-center h-full text-center px-6 py-8">
       <div className="relative mb-6">
-        <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-emerald-500 via-teal-500 to-pink-500 flex items-center justify-center text-white text-3xl font-bold shadow-lg shadow-emerald-500/25">
-          L
-        </div>
+        <LogoMark className="h-20 w-20 rounded-2xl shadow-lg shadow-emerald-500/25" />
         <div className="absolute -bottom-1 -right-1 w-6 h-6 rounded-full bg-green-400 border-[3px] border-gray-50 animate-pulse-glow" />
       </div>
       <h3 className="text-xl font-bold text-gray-900">
@@ -538,7 +535,7 @@ export default function DemoChatPage() {
 
   // ─── Render ─────────────────────────────────────────────────
   return (
-    <div className="flex flex-col h-full bg-gray-50">
+    <div className="flex flex-col h-full bg-app-gradient">
       <LoginToast show={showLoginToast} onClose={() => setShowLoginToast(false)} />
 
       {/* Messages area */}
@@ -564,9 +561,7 @@ export default function DemoChatPage() {
         )}
         {isTyping && (
           <div className="flex gap-2.5 animate-fade-in-up">
-            <div className="w-7 h-7 rounded-lg bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center text-white text-[10px] font-bold flex-shrink-0 mt-0.5 shadow-sm">
-              L
-            </div>
+            <LogoMark className="h-7 w-7 flex-shrink-0 mt-0.5" />
             <div className="bg-white border border-gray-100 rounded-2xl rounded-tl-md px-4 py-3 shadow-sm">
               <TypingIndicator />
             </div>

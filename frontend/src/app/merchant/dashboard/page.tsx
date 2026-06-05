@@ -3,6 +3,7 @@
 import { useEffect, useState, useCallback } from "react";
 import Link from "next/link";
 import { getMerchantDashboardStats, updateMerchantProfile } from "@/lib/api";
+import { StatCard } from "@/components/dashboard/StatCard";
 
 const COUNTRY_OPTIONS = [
   { code: "US", label: "United States", currency: "USD", symbol: "$" },
@@ -198,28 +199,15 @@ export default function MerchantDashboard() {
       {/* Stats */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mt-8">
         {STAT_CARDS.map((card) => (
-          <div
+          <StatCard
             key={card.label}
-            className="bg-white rounded-xl border border-gray-200 p-5 hover:shadow-sm transition"
-          >
-            <div className="flex items-center justify-between">
-              <p className="text-sm font-medium text-gray-500">{card.label}</p>
-              <div
-                className={`w-9 h-9 rounded-lg ${card.bg} ${card.color} flex items-center justify-center`}
-              >
-                {card.icon}
-              </div>
-            </div>
-            <p className="text-3xl font-bold mt-3 text-gray-900">
-              {loading ? (
-                <span className="inline-block w-16 h-8 bg-gray-200 rounded-lg animate-pulse" />
-              ) : typeof card.value === "number" ? (
-                card.value.toLocaleString()
-              ) : (
-                card.value
-              )}
-            </p>
-          </div>
+            label={card.label}
+            value={card.value}
+            icon={card.icon}
+            iconBg={card.bg}
+            iconColor={card.color}
+            loading={loading}
+          />
         ))}
       </div>
 

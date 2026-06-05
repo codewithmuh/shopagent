@@ -6,39 +6,35 @@ import { LogoMark } from "@/components/Logo";
 
 /* ─── Helper Components ────────────────────────────────── */
 function CopyButton({ text }: { text: string }) {
-  const [copied, setCopied] = useState(false);
-
-  function handleCopy() {
-    navigator.clipboard.writeText(text);
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
-  }
+  const [ok, setOk] = useState(false);
 
   return (
     <button
-      onClick={handleCopy}
-      className="px-2 py-1 text-sm font-medium rounded-md bg-gray-100 text-gray-600 hover:bg-gray-200 hover:text-gray-800 transition flex-shrink-0"
+      type="button"
+      aria-label="Copy code"
+      onClick={() => {
+        navigator.clipboard.writeText(text);
+        setOk(true);
+        setTimeout(() => setOk(false), 1500);
+      }}
+      className="inline-flex flex-shrink-0 items-center gap-1 rounded-md px-2 py-1 text-xs font-medium text-gray-400 transition hover:bg-gray-700/60 hover:text-gray-100"
     >
-      {copied ? "Copied!" : "Copy"}
+      {ok ? "Copied ✓" : "Copy"}
     </button>
   );
 }
 
+// Terminal-style code block (dark) — distinct from a plain light snippet card.
 function CodeBlock({ code, language }: { code: string; language: string }) {
   return (
-    <div className="bg-white rounded-xl border border-gray-200 overflow-hidden mt-3">
-      <div className="flex items-center justify-between px-4 py-2 bg-gray-50 border-b border-gray-200">
-        <div className="flex items-center gap-2">
-          <span className="w-2.5 h-2.5 rounded-full bg-red-400" />
-          <span className="w-2.5 h-2.5 rounded-full bg-yellow-400" />
-          <span className="w-2.5 h-2.5 rounded-full bg-green-400" />
-          <span className="text-sm font-medium text-gray-500 ml-2">
-            {language}
-          </span>
-        </div>
+    <div className="mt-3 overflow-hidden rounded-xl border border-gray-800 bg-gray-900">
+      <div className="flex items-center justify-between border-b border-gray-800 px-4 py-2">
+        <span className="rounded bg-gray-800 px-2 py-0.5 text-xs font-medium text-emerald-300">
+          {language}
+        </span>
         <CopyButton text={code} />
       </div>
-      <pre className="px-4 py-3 text-base font-mono text-gray-800 overflow-x-auto leading-relaxed">
+      <pre className="overflow-x-auto px-4 py-3 font-mono text-sm leading-relaxed text-gray-100">
         <code>{code}</code>
       </pre>
     </div>
@@ -56,13 +52,21 @@ function Section({
 }) {
   return (
     <section id={id} className="scroll-mt-24">
-      <h2 className="text-2xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-100">
-        {title}
-      </h2>
+      <div className="mb-5 flex items-center gap-3">
+        <span className="h-6 w-1.5 rounded-full bg-gradient-to-b from-emerald-500 to-teal-500" />
+        <h2 className="text-2xl font-bold text-gray-900">{title}</h2>
+      </div>
       <div className="space-y-4">{children}</div>
     </section>
   );
 }
+
+const METHOD_TONES: Record<string, string> = {
+  GET: "bg-emerald-100 text-emerald-700",
+  POST: "bg-sky-100 text-sky-700",
+  PATCH: "bg-amber-100 text-amber-700",
+  DELETE: "bg-rose-100 text-rose-700",
+};
 
 function EndpointCard({
   method,
@@ -75,33 +79,20 @@ function EndpointCard({
   description: string;
   children?: React.ReactNode;
 }) {
-  const methodColor =
-    method === "GET"
-      ? "bg-green-100 text-green-700"
-      : method === "POST"
-        ? "bg-blue-100 text-blue-700"
-        : method === "PATCH"
-          ? "bg-yellow-100 text-yellow-700"
-          : method === "DELETE"
-            ? "bg-red-100 text-red-700"
-            : "bg-gray-100 text-gray-700";
+  const tone = METHOD_TONES[method] ?? "bg-gray-100 text-gray-700";
 
   return (
-    <div className="bg-white rounded-xl border border-gray-200 overflow-hidden">
-      <div className="px-5 py-4 border-b border-gray-100">
-        <div className="flex items-center gap-3">
-          <span
-            className={`px-2 py-0.5 text-sm font-bold rounded ${methodColor}`}
-          >
+    <div className="overflow-hidden rounded-xl border border-gray-200">
+      <div className="border-b border-gray-100 px-5 py-4">
+        <div className="flex flex-wrap items-center gap-2.5">
+          <span className={`rounded-md px-2 py-0.5 text-xs font-bold tracking-wide ${tone}`}>
             {method}
           </span>
-          <code className="text-base font-mono text-gray-900">{path}</code>
+          <code className="font-mono text-base text-gray-900">{path}</code>
         </div>
-        <p className="text-base text-gray-500 mt-2">{description}</p>
+        <p className="mt-2 text-base text-gray-500">{description}</p>
       </div>
-      {children && (
-        <div className="px-5 py-4 bg-gray-50/50 text-base">{children}</div>
-      )}
+      {children && <div className="bg-gray-50/60 px-5 py-4 text-base">{children}</div>}
     </div>
   );
 }
@@ -457,38 +448,38 @@ export default function HomePage() {
   return (
     <div className="min-h-screen flex flex-col bg-white">
       {/* ── Nav ─────────────────────────────────────────── */}
-      <nav className="sticky top-0 z-40 bg-white/80 backdrop-blur-lg border-b border-gray-100 px-6 py-3">
-        <div className="max-w-7xl mx-auto flex items-center justify-between">
+      <header className="sticky top-0 z-40 glass border-b border-gray-100 px-6 py-3">
+        <div className="mx-auto flex max-w-7xl items-center justify-between">
           <Link href="/" className="flex items-center gap-2">
             <LogoMark className="h-8 w-8" />
-            <span className="text-2xl font-bold tracking-tight">ShopAgent</span>
+            <span className="text-xl font-bold tracking-tight">ShopAgent</span>
           </Link>
-
-          <div className="hidden md:flex items-center gap-1">
+          <div className="flex items-center gap-2">
             <Link
-              href="/contact"
-              className="px-3 py-2 text-base text-gray-600 hover:text-gray-900 rounded-lg hover:bg-gray-50 transition"
+              href="/"
+              className="hidden rounded-lg px-3 py-2 text-sm text-gray-600 transition hover:bg-gray-50 hover:text-gray-900 sm:inline-flex"
             >
-              Contact
+              Home
             </Link>
-          </div>
-
-          <div className="flex items-center gap-3">
+            <a
+              href="https://github.com/codewithmuh/shopagent"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="ShopAgent on GitHub"
+              className="inline-flex items-center gap-1.5 rounded-lg px-3 py-2 text-sm font-medium text-gray-600 transition hover:bg-gray-50 hover:text-gray-900"
+            >
+              <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18" aria-hidden="true"><path d="M12 .5C5.37.5 0 5.78 0 12.29c0 5.21 3.44 9.63 8.2 11.19.6.11.82-.25.82-.56 0-.28-.01-1.02-.02-2-3.34.72-4.04-1.59-4.04-1.59-.55-1.38-1.33-1.75-1.33-1.75-1.09-.74.08-.73.08-.73 1.2.08 1.84 1.22 1.84 1.22 1.07 1.8 2.81 1.28 3.5.98.11-.76.42-1.28.76-1.57-2.67-.3-5.47-1.31-5.47-5.84 0-1.29.47-2.34 1.24-3.17-.12-.3-.54-1.52.12-3.17 0 0 1.01-.32 3.3 1.21a11.6 11.6 0 016 0c2.29-1.53 3.3-1.21 3.3-1.21.66 1.65.24 2.87.12 3.17.77.83 1.24 1.88 1.24 3.17 0 4.54-2.81 5.54-5.49 5.83.43.37.81 1.1.81 2.22 0 1.6-.01 2.89-.01 3.28 0 .31.21.68.83.56C20.56 21.91 24 17.5 24 12.29 24 5.78 18.63.5 12 .5z"/></svg>
+              <span className="hidden lg:inline">GitHub</span>
+            </a>
             <Link
               href="/portal/login"
-              className="hidden sm:inline-flex px-4 py-2 text-base font-medium text-gray-600 hover:text-gray-900 transition"
+              className="rounded-lg bg-gray-900 px-5 py-2 text-sm font-medium text-white transition hover:bg-gray-800"
             >
-              Sign In
-            </Link>
-            <Link
-              href="/portal/login"
-              className="px-5 py-2 text-base font-medium bg-gray-900 text-white rounded-lg hover:bg-gray-800 transition"
-            >
-              Get API Keys
+              Get API keys
             </Link>
           </div>
         </div>
-      </nav>
+      </header>
 
       {/* ── Docs Content ──────────────────────────────── */}
       <main className="flex-1 max-w-7xl mx-auto w-full px-6 py-10">
