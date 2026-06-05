@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useEffect, useState, useRef } from "react";
 import { useRouter } from "next/navigation";
+import { LogoMark } from "@/components/Logo";
 
 /* ─── Animated Chat Simulation ────────────────────────── */
 const CHAT_MESSAGES = [
@@ -348,9 +349,7 @@ export default function LandingPage() {
       <nav className="sticky top-0 z-40 bg-white/80 backdrop-blur-lg border-b border-gray-100 px-6 py-3">
         <div className="max-w-6xl mx-auto flex items-center justify-between">
           <Link href="/" className="flex items-center gap-2">
-            <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-emerald-600 to-teal-600 flex items-center justify-center text-white text-sm font-bold">
-              S
-            </div>
+            <LogoMark className="h-8 w-8" />
             <span className="text-xl font-bold tracking-tight">ShopAgent</span>
           </Link>
 
@@ -398,141 +397,140 @@ export default function LandingPage() {
 
       {/* ── Hero ─────────────────────────────────────────────── */}
       <section className="relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-emerald-50/50 to-white pointer-events-none" />
-        <div className="absolute top-20 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-emerald-200/30 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-b from-emerald-50/60 via-white to-white pointer-events-none" />
+        <div className="absolute -top-32 -right-20 w-[640px] h-[640px] bg-emerald-200/30 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute top-40 -left-24 w-[420px] h-[420px] bg-teal-200/20 rounded-full blur-3xl pointer-events-none" />
 
-        <div className="relative max-w-6xl mx-auto px-6 pt-20 pb-16">
-          <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
-            {/* Left: text content */}
-            <div className="flex-1 text-center lg:text-left">
-              <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-emerald-50 border border-emerald-100 rounded-full text-sm text-emerald-700 font-medium mb-8">
+        <div className="relative max-w-6xl mx-auto px-6 pt-20 pb-24">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+            {/* Left: copy */}
+            <div className="text-center lg:text-left">
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-white/70 backdrop-blur border border-emerald-100 rounded-full text-sm text-emerald-700 font-medium mb-7 shadow-soft">
                 <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
                 AI Shopping Agent Platform
               </div>
 
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-[1.1]">
+              <h1 className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold tracking-tight leading-[1.05]">
                 Commerce through{" "}
                 <span className="text-gradient">conversation</span>
               </h1>
 
-              <p className="mt-6 text-lg md:text-xl text-gray-500 max-w-xl leading-relaxed">
-                Add an AI shopping assistant to your app. ShopAgent handles product
-                search, recommendations, and checkout — via text or voice.
+              <p className="mt-6 text-lg md:text-xl text-gray-500 max-w-xl mx-auto lg:mx-0 leading-relaxed">
+                Drop a chat-and-voice shopping agent into any app. Leo finds the
+                products, answers the questions, and closes the sale — your users
+                just talk.
               </p>
 
-              <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+              <div className="mt-8 flex flex-col sm:flex-row gap-3 justify-center lg:justify-start">
                 <Link
                   href="/portal/login"
-                  className="inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-gray-900 text-white font-semibold rounded-xl hover:bg-gray-800 transition text-lg shadow-lg shadow-gray-900/10"
+                  className="inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-gray-900 text-white font-semibold rounded-xl hover:bg-gray-800 transition text-lg shadow-lg shadow-gray-900/10"
                 >
-                  <svg
-                    width="20"
-                    height="20"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                  >
-                    <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4" />
-                    <polyline points="10 17 15 12 10 7" />
-                    <line x1="15" y1="12" x2="3" y2="12" />
-                  </svg>
-                  Get API Keys
-                </Link>
-                <Link
-                  href="/docs"
-                  className="inline-flex items-center justify-center px-8 py-3.5 border-2 border-gray-200 text-gray-700 font-semibold rounded-xl hover:border-gray-300 hover:bg-gray-50 transition text-lg"
-                >
-                  Read the Docs
+                  Get API keys
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 12h14" /><path d="M13 6l6 6-6 6" /></svg>
                 </Link>
                 <a
                   href="https://github.com/codewithmuh/shopagent"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2 px-8 py-3.5 border-2 border-gray-200 text-gray-700 font-semibold rounded-xl hover:border-gray-300 hover:bg-gray-50 transition text-lg"
+                  className="inline-flex items-center justify-center gap-2 px-7 py-3.5 border-2 border-gray-200 text-gray-700 font-semibold rounded-xl hover:border-gray-300 hover:bg-gray-50 transition text-lg"
                 >
                   <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20" aria-hidden="true"><path d="M12 .5C5.37.5 0 5.78 0 12.29c0 5.21 3.44 9.63 8.2 11.19.6.11.82-.25.82-.56 0-.28-.01-1.02-.02-2-3.34.72-4.04-1.59-4.04-1.59-.55-1.38-1.33-1.75-1.33-1.75-1.09-.74.08-.73.08-.73 1.2.08 1.84 1.22 1.84 1.22 1.07 1.8 2.81 1.28 3.5.98.11-.76.42-1.28.76-1.57-2.67-.3-5.47-1.31-5.47-5.84 0-1.29.47-2.34 1.24-3.17-.12-.3-.54-1.52.12-3.17 0 0 1.01-.32 3.3 1.21a11.6 11.6 0 016 0c2.29-1.53 3.3-1.21 3.3-1.21.66 1.65.24 2.87.12 3.17.77.83 1.24 1.88 1.24 3.17 0 4.54-2.81 5.54-5.49 5.83.43.37.81 1.1.81 2.22 0 1.6-.01 2.89-.01 3.28 0 .31.21.68.83.56C20.56 21.91 24 17.5 24 12.29 24 5.78 18.63.5 12 .5z"/></svg>
                   Star on GitHub
                 </a>
               </div>
+              <p className="mt-5 text-sm text-gray-400">
+                Try the{" "}
+                <Link href="/demo/login" className="text-gray-600 underline underline-offset-2 hover:text-gray-900">live demo</Link>
+                {" "}·{" "}
+                read the{" "}
+                <Link href="/docs" className="text-gray-600 underline underline-offset-2 hover:text-gray-900">docs</Link>
+              </p>
             </div>
 
-            {/* Right: animated chat widget */}
-            <div className="flex-shrink-0 w-full max-w-md">
-              <AnimatedChat />
+            {/* Right: chat in a browser frame with floating accents */}
+            <div className="relative">
+              <div className="hidden lg:flex absolute -top-4 -left-6 z-20 items-center gap-1.5 px-3 py-1.5 rounded-full bg-white shadow-soft border border-gray-100 text-xs font-medium text-gray-700">
+                <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse" />
+                Voice + text
+              </div>
+              <div className="hidden lg:flex absolute -bottom-4 -right-4 z-20 items-center gap-1.5 px-3 py-1.5 rounded-full bg-white shadow-soft border border-gray-100 text-xs font-medium text-gray-700">
+                <span className="text-emerald-600">◆</span> USDC checkout
+              </div>
+
+              <div className="rounded-2xl border border-gray-200 bg-white shadow-soft-lg overflow-hidden">
+                <div className="flex items-center gap-2 px-4 py-3 border-b border-gray-100 bg-gray-50/80">
+                  <span className="w-3 h-3 rounded-full bg-red-300" />
+                  <span className="w-3 h-3 rounded-full bg-yellow-300" />
+                  <span className="w-3 h-3 rounded-full bg-green-300" />
+                  <div className="flex-1 flex justify-center">
+                    <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-md bg-white border border-gray-200 text-xs text-gray-400">
+                      <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="3" y="11" width="18" height="11" rx="2" /><path d="M7 11V7a5 5 0 0 1 10 0v4" /></svg>
+                      app.shopagent.dev/chat
+                    </div>
+                  </div>
+                </div>
+                <div className="p-5 sm:p-6 bg-gradient-to-b from-emerald-50/30 to-white flex justify-center">
+                  <AnimatedChat />
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
       {/* ── Features ─────────────────────────────────────────── */}
-      <section className="py-24 px-6">
-        <div className="max-w-6xl mx-auto">
+      <section className="py-24 px-6 border-t border-gray-100">
+        <div className="max-w-5xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold">How it works</h2>
+            <p className="text-sm font-semibold uppercase tracking-wider text-emerald-600">
+              The flow
+            </p>
+            <h2 className="text-3xl md:text-4xl font-bold mt-2">
+              From message to doorstep
+            </h2>
             <p className="mt-3 text-gray-500 text-lg">
-              From first message to doorstep — in three steps
+              Three steps, all inside the conversation.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="bg-white rounded-2xl p-8 border border-gray-100 shadow-soft card-lift">
-              <div className="w-12 h-12 rounded-xl bg-emerald-100 flex items-center justify-center mb-5">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                  <path
-                    d="M21 11.5C21.0034 12.8199 20.6951 14.1219 20.1 15.3C19.3944 16.7118 18.3098 17.8992 16.9674 18.7293C15.6251 19.5594 14.0782 19.9994 12.5 20C11.1801 20.0035 9.87812 19.6951 8.7 19.1L3 21L4.9 15.3C4.30493 14.1219 3.99656 12.8199 4 11.5C4.00061 9.92179 4.44061 8.37488 5.27072 7.03258C6.10083 5.69028 7.28825 4.6056 8.7 3.90003C9.87812 3.30496 11.1801 2.99659 12.5 3.00003H13C15.0843 3.11502 17.053 3.99479 18.5291 5.47089C20.0052 6.94699 20.885 8.91568 21 11V11.5Z"
-                    stroke="#10b981"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-              </div>
-              <h3 className="text-xl font-semibold mb-2">Chat with Leo</h3>
-              <p className="text-gray-500 leading-relaxed">
-                Tell Leo what you&apos;re looking for — via text or voice. It
-                searches across all merchants and shows the best matches.
-              </p>
-            </div>
+          <ol className="relative grid gap-12 md:grid-cols-3 md:gap-8">
+            {/* connecting line (desktop) */}
+            <div className="hidden md:block absolute top-7 left-[16.66%] right-[16.66%] h-px bg-gradient-to-r from-emerald-200 via-teal-300 to-emerald-200" />
 
-            <div className="bg-white rounded-2xl p-8 border border-gray-100 shadow-soft card-lift">
-              <div className="w-12 h-12 rounded-xl bg-green-100 flex items-center justify-center mb-5">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                  <path
-                    d="M12 1V23M17 5H9.5C8.57174 5 7.6815 5.36875 7.02513 6.02513C6.36875 6.6815 6 7.57174 6 8.5C6 9.42826 6.36875 10.3185 7.02513 10.9749C7.6815 11.6313 8.57174 12 9.5 12H14.5C15.4283 12 16.3185 12.3687 16.9749 13.0251C17.6313 13.6815 18 14.5717 18 15.5C18 16.4283 17.6313 17.3185 16.9749 17.9749C16.3185 18.6313 15.4283 19 14.5 19H6"
-                    stroke="#16a34a"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
+            <li className="relative text-center md:px-4">
+              <div className="relative z-10 mx-auto w-14 h-14 rounded-2xl bg-white border border-emerald-100 shadow-soft flex items-center justify-center font-bold text-emerald-600 text-lg">
+                01
               </div>
-              <h3 className="text-xl font-semibold mb-2">Pay with Crypto</h3>
-              <p className="text-gray-500 leading-relaxed">
-                Connect your wallet once. USDC payments are instant — no forms,
-                no credit cards.
+              <h3 className="text-xl font-semibold mt-5">Discover</h3>
+              <p className="text-gray-500 leading-relaxed mt-2">
+                Your shopper asks Leo for anything — by text or voice. It searches
+                every connected store and surfaces the best matches as cards.
               </p>
-            </div>
+            </li>
 
-            <div className="bg-white rounded-2xl p-8 border border-gray-100 shadow-soft card-lift">
-              <div className="w-12 h-12 rounded-xl bg-teal-100 flex items-center justify-center mb-5">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                  <path
-                    d="M20 7L12 3L4 7M20 7L12 11M20 7V17L12 21M12 11L4 7M12 11V21M4 7V17L12 21"
-                    stroke="#0d9488"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
+            <li className="relative text-center md:px-4">
+              <div className="relative z-10 mx-auto w-14 h-14 rounded-2xl bg-white border border-emerald-100 shadow-soft flex items-center justify-center font-bold text-emerald-600 text-lg">
+                02
               </div>
-              <h3 className="text-xl font-semibold mb-2">Real-time Inventory</h3>
-              <p className="text-gray-500 leading-relaxed">
-                Products sync from Shopify. Stock is locked the moment you buy —
-                no overselling.
+              <h3 className="text-xl font-semibold mt-5">Pay</h3>
+              <p className="text-gray-500 leading-relaxed mt-2">
+                They confirm and pay right in the chat with crypto — wallet
+                connected once, USDC settled instantly. No forms, no card entry.
               </p>
-            </div>
-          </div>
+            </li>
+
+            <li className="relative text-center md:px-4">
+              <div className="relative z-10 mx-auto w-14 h-14 rounded-2xl bg-white border border-emerald-100 shadow-soft flex items-center justify-center font-bold text-emerald-600 text-lg">
+                03
+              </div>
+              <h3 className="text-xl font-semibold mt-5">Fulfill</h3>
+              <p className="text-gray-500 leading-relaxed mt-2">
+                Stock is reserved in Shopify the instant they buy, the order is
+                created, and the merchant is notified to ship. No overselling.
+              </p>
+            </li>
+          </ol>
         </div>
       </section>
 
@@ -602,26 +600,30 @@ export default function LandingPage() {
 
       {/* ── CTA ──────────────────────────────────────────────── */}
       <section className="px-6 pb-24">
-        <div className="max-w-4xl mx-auto bg-gradient-to-br from-gray-900 to-gray-800 rounded-3xl p-12 text-center text-white">
-          <h2 className="text-3xl md:text-4xl font-bold">
-            Ready to add AI shopping?
-          </h2>
-          <p className="mt-4 text-gray-400 text-lg max-w-xl mx-auto">
-            Get your API keys and integrate ShopAgent into your app in minutes.
-          </p>
-          <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
-            <Link
-              href="/portal/login"
-              className="px-8 py-3.5 bg-white text-gray-900 font-semibold rounded-xl hover:bg-gray-100 transition text-lg"
-            >
-              Get API Keys
-            </Link>
-            <Link
-              href="/docs"
-              className="px-8 py-3.5 border border-gray-600 text-gray-300 font-semibold rounded-xl hover:border-gray-500 hover:text-white transition text-lg"
-            >
-              View Documentation
-            </Link>
+        <div className="relative max-w-4xl mx-auto overflow-hidden rounded-3xl bg-gradient-to-br from-emerald-600 to-teal-700 p-12 text-center text-white shadow-soft-lg">
+          <div className="absolute -top-16 -right-16 w-64 h-64 bg-white/10 rounded-full blur-2xl pointer-events-none" />
+          <div className="relative">
+            <h2 className="text-3xl md:text-4xl font-bold">
+              Put Leo in your app this week
+            </h2>
+            <p className="mt-4 text-emerald-50/90 text-lg max-w-xl mx-auto">
+              Spin up the full stack with one command, grab your API keys, and
+              connect over a WebSocket — it&apos;s all yours to run locally.
+            </p>
+            <div className="mt-8 flex flex-col sm:flex-row gap-3 justify-center">
+              <Link
+                href="/portal/login"
+                className="px-7 py-3.5 bg-white text-emerald-700 font-semibold rounded-xl hover:bg-emerald-50 transition text-lg"
+              >
+                Get API keys
+              </Link>
+              <Link
+                href="/docs"
+                className="px-7 py-3.5 border border-white/40 text-white font-semibold rounded-xl hover:bg-white/10 transition text-lg"
+              >
+                View documentation
+              </Link>
+            </div>
           </div>
         </div>
       </section>
@@ -632,9 +634,7 @@ export default function LandingPage() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             <div className="col-span-2 md:col-span-1">
               <div className="flex items-center gap-2 mb-4">
-                <div className="w-7 h-7 rounded-md bg-gradient-to-br from-emerald-600 to-teal-600 flex items-center justify-center text-white text-xs font-bold">
-                  S
-                </div>
+                <LogoMark className="h-7 w-7" />
                 <span className="font-bold text-gray-900">ShopAgent</span>
               </div>
               <p className="text-sm text-gray-500 leading-relaxed">

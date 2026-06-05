@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
+import { LogoMark } from "@/components/Logo";
 
 const NAV_ITEMS = [
   {
@@ -65,9 +66,7 @@ export default function PortalLayout({
       <aside className="w-64 glass border-r border-gray-200 flex flex-col flex-shrink-0 overflow-y-auto">
         <div className="px-5 py-5 border-b border-gray-100">
           <Link href="/portal/dashboard" className="flex items-center gap-2">
-            <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-emerald-600 to-teal-600 flex items-center justify-center text-white text-sm font-bold">
-              S
-            </div>
+            <LogoMark className="h-8 w-8" />
             <span className="font-bold text-gray-900">
               ShopAgent <span className="text-emerald-600">Portal</span>
             </span>

@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useState, useEffect, useRef } from "react";
+import { LogoMark } from "@/components/Logo";
 
 /* ─── Helper Components ────────────────────────────────── */
 function CopyButton({ text }: { text: string }) {
@@ -459,9 +460,7 @@ export default function HomePage() {
       <nav className="sticky top-0 z-40 bg-white/80 backdrop-blur-lg border-b border-gray-100 px-6 py-3">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           <Link href="/" className="flex items-center gap-2">
-            <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-emerald-600 to-teal-600 flex items-center justify-center text-white text-base font-bold">
-              S
-            </div>
+            <LogoMark className="h-8 w-8" />
             <span className="text-2xl font-bold tracking-tight">ShopAgent</span>
           </Link>
 
@@ -522,15 +521,33 @@ export default function HomePage() {
 
           {/* Main docs content */}
           <div ref={contentRef} className="flex-1 min-w-0 space-y-12">
-            <div>
-              <h1 className="text-3xl font-bold text-gray-900">
-                API Documentation
+            <div className="rounded-2xl border border-emerald-100 bg-gradient-to-br from-emerald-50 to-teal-50 p-6 sm:p-8">
+              <div className="inline-flex items-center gap-2 px-3 py-1 bg-white/70 border border-emerald-100 rounded-full text-sm font-medium text-emerald-700 mb-4">
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
+                Developer Docs
+              </div>
+              <h1 className="text-3xl sm:text-4xl font-bold text-gray-900">
+                Build with ShopAgent
               </h1>
-              <p className="text-gray-500 mt-1">
-                Everything you need to embed Leo — the ShopAgent AI shopping agent —
-                into your own app: API keys, a live WebSocket connection, and payment
-                webhooks. Use the menu on the right to jump between sections.
+              <p className="text-gray-600 mt-2 max-w-2xl leading-relaxed">
+                Embed Leo — the AI shopping agent — into your own app. This guide takes
+                you from API keys to a live WebSocket chat and payment webhooks, with
+                copy-paste examples in JavaScript and Python.
               </p>
+              <div className="mt-5 flex flex-wrap gap-2">
+                <a href="#quick-start" className="px-3 py-1.5 text-sm font-medium rounded-lg bg-white border border-emerald-100 text-emerald-700 hover:bg-emerald-50 transition">
+                  Quick start →
+                </a>
+                <a href="#authentication" className="px-3 py-1.5 text-sm font-medium rounded-lg bg-white border border-gray-200 text-gray-600 hover:bg-gray-50 transition">
+                  Authentication
+                </a>
+                <a href="#websocket" className="px-3 py-1.5 text-sm font-medium rounded-lg bg-white border border-gray-200 text-gray-600 hover:bg-gray-50 transition">
+                  WebSocket
+                </a>
+                <a href="#webhooks" className="px-3 py-1.5 text-sm font-medium rounded-lg bg-white border border-gray-200 text-gray-600 hover:bg-gray-50 transition">
+                  Webhooks
+                </a>
+              </div>
             </div>
 
             {/* System Flow */}
@@ -1515,9 +1532,7 @@ def handle_webhook():
             {/* Brand */}
             <div className="col-span-2 md:col-span-1">
               <div className="flex items-center gap-2 mb-4">
-                <div className="w-7 h-7 rounded-md bg-gradient-to-br from-emerald-600 to-teal-600 flex items-center justify-center text-white text-sm font-bold">
-                  S
-                </div>
+                <LogoMark className="h-7 w-7" />
                 <span className="font-bold text-gray-900">ShopAgent</span>
               </div>
               <p className="text-base text-gray-500 leading-relaxed">

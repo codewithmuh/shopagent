@@ -6,7 +6,9 @@ export const metadata: Metadata = {
   description:
     "Add AI-powered shopping to your app. ShopAgent provides voice-enabled product search, recommendations, and checkout via a simple WebSocket API.",
   icons: {
-    icon: "/favicon.svg",
+    icon: [{ url: "/favicon.svg", type: "image/svg+xml" }],
+    shortcut: "/favicon.svg",
+    apple: "/favicon.svg",
   },
 };
 
