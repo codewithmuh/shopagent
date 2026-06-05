@@ -1,0 +1,33 @@
+# Local development overrides — auto-loaded by `docker compose up`.
+#
+# This file makes the dev loop fast:
+#   • Frontend runs `next dev` (Turbopack hot reload) instead of a full build.
+#   • Backend runs Django's ASGI-aware `runserver` (auto-reload + WebSockets,
+#     since `daphne` + `channels` are installed) and auto-applies migrations + seed.
+#   • Both mount your working tree so edits are reflected live.
+#
+# Production does NOT use this file — it loads only the base + prod files:
+#   docker compose -f docker-compose.yml -f docker-compose.prod.yml up
+services:
+  backend:
+    # migrate + seed (idempotent) + hot-reloading ASGI dev server
+    command: >
+      sh -c "python manage.py migrate &&
+             python manage.py seed &&
+             python manage.py runserver 0.0.0.0:8000"
+    environment:
+      - DEBUG=True
+    # ./backend is already mounted in the base compose file for live edits.
+
+  frontend:
+    # Hot-reload dev server instead of `npm run build && npm start`.
+    command: sh -c "npm install && npm run dev"
+    environment:
+      # Help file-watching detect changes through the bind mount on macOS/Windows.
+      - WATCHPACK_POLLING=true
+      - CHOKIDAR_USEPOLLING=true
+    volumes:
+      - ./frontend:/app
+      # Keep the image's node_modules / .next instead of the (empty) host dirs.
+      - /app/node_modules
+      - /app/.next

@@ -1,0 +1,9 @@
+# Copy this to terraform.tfvars and fill in your values
+# NEVER commit terraform.tfvars to git
+
+db_password        = "CHANGE_ME_strong_password_here"
+anthropic_api_key  = "sk-ant-..."
+openai_api_key     = "sk-..."
+django_secret_key  = "CHANGE_ME_random_50_chars"
+shopify_api_key    = ""
+shopify_api_secret = ""
