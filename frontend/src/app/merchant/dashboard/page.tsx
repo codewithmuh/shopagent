@@ -159,7 +159,7 @@ export default function MerchantDashboard() {
             )}
           </h1>
           <p className="text-gray-500 mt-0.5">
-            Here&apos;s an overview of your store
+            Your store at a glance. Connect Shopify under <span className="font-medium text-gray-700">Connections</span> to sync products into Leo&apos;s catalog.
           </p>
         </div>
 

@@ -244,7 +244,7 @@ ws.onmessage = (event) => {
             )}
           </h1>
           <p className="text-gray-500 mt-0.5">
-            Manage your API keys, webhooks, and monitor usage
+            Your company control center — copy your API credentials to embed ShopAgent in your app, configure payment webhooks, and monitor agent usage.
           </p>
         </div>
         {company?.is_active && (

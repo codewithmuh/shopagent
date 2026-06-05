@@ -164,7 +164,7 @@ function AnimatedChat() {
       <div className="bg-white rounded-2xl shadow-xl border border-gray-200 overflow-hidden animate-fade-in">
         <div className="bg-gradient-to-r from-emerald-600 to-teal-700 text-white px-5 py-3 flex items-center gap-3">
           <div className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center text-sm font-bold">
-            F
+            L
           </div>
           <div>
             <p className="text-sm font-semibold">Leo</p>
@@ -349,7 +349,7 @@ export default function LandingPage() {
         <div className="max-w-6xl mx-auto flex items-center justify-between">
           <Link href="/" className="flex items-center gap-2">
             <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-emerald-600 to-teal-600 flex items-center justify-center text-white text-sm font-bold">
-              F
+              S
             </div>
             <span className="text-xl font-bold tracking-tight">ShopAgent</span>
           </Link>
@@ -370,6 +370,16 @@ export default function LandingPage() {
           </div>
 
           <div className="flex items-center gap-3">
+            <a
+              href="https://github.com/codewithmuh/shopagent"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="View ShopAgent source on GitHub"
+              className="inline-flex items-center gap-1.5 px-3 py-2 text-sm font-medium text-gray-600 hover:text-gray-900 rounded-lg hover:bg-gray-50 transition"
+            >
+              <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18" aria-hidden="true"><path d="M12 .5C5.37.5 0 5.78 0 12.29c0 5.21 3.44 9.63 8.2 11.19.6.11.82-.25.82-.56 0-.28-.01-1.02-.02-2-3.34.72-4.04-1.59-4.04-1.59-.55-1.38-1.33-1.75-1.33-1.75-1.09-.74.08-.73.08-.73 1.2.08 1.84 1.22 1.84 1.22 1.07 1.8 2.81 1.28 3.5.98.11-.76.42-1.28.76-1.57-2.67-.3-5.47-1.31-5.47-5.84 0-1.29.47-2.34 1.24-3.17-.12-.3-.54-1.52.12-3.17 0 0 1.01-.32 3.3 1.21a11.6 11.6 0 016 0c2.29-1.53 3.3-1.21 3.3-1.21.66 1.65.24 2.87.12 3.17.77.83 1.24 1.88 1.24 3.17 0 4.54-2.81 5.54-5.49 5.83.43.37.81 1.1.81 2.22 0 1.6-.01 2.89-.01 3.28 0 .31.21.68.83.56C20.56 21.91 24 17.5 24 12.29 24 5.78 18.63.5 12 .5z"/></svg>
+              <span className="hidden lg:inline">GitHub</span>
+            </a>
             <Link
               href="/portal/login"
               className="hidden sm:inline-flex px-4 py-2 text-sm font-medium text-gray-600 hover:text-gray-900 transition"
@@ -435,6 +445,15 @@ export default function LandingPage() {
                 >
                   Read the Docs
                 </Link>
+                <a
+                  href="https://github.com/codewithmuh/shopagent"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-2 px-8 py-3.5 border-2 border-gray-200 text-gray-700 font-semibold rounded-xl hover:border-gray-300 hover:bg-gray-50 transition text-lg"
+                >
+                  <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20" aria-hidden="true"><path d="M12 .5C5.37.5 0 5.78 0 12.29c0 5.21 3.44 9.63 8.2 11.19.6.11.82-.25.82-.56 0-.28-.01-1.02-.02-2-3.34.72-4.04-1.59-4.04-1.59-.55-1.38-1.33-1.75-1.33-1.75-1.09-.74.08-.73.08-.73 1.2.08 1.84 1.22 1.84 1.22 1.07 1.8 2.81 1.28 3.5.98.11-.76.42-1.28.76-1.57-2.67-.3-5.47-1.31-5.47-5.84 0-1.29.47-2.34 1.24-3.17-.12-.3-.54-1.52.12-3.17 0 0 1.01-.32 3.3 1.21a11.6 11.6 0 016 0c2.29-1.53 3.3-1.21 3.3-1.21.66 1.65.24 2.87.12 3.17.77.83 1.24 1.88 1.24 3.17 0 4.54-2.81 5.54-5.49 5.83.43.37.81 1.1.81 2.22 0 1.6-.01 2.89-.01 3.28 0 .31.21.68.83.56C20.56 21.91 24 17.5 24 12.29 24 5.78 18.63.5 12 .5z"/></svg>
+                  Star on GitHub
+                </a>
               </div>
             </div>
 
@@ -452,12 +471,12 @@ export default function LandingPage() {
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold">How it works</h2>
             <p className="mt-3 text-gray-500 text-lg">
-              Three steps from search to delivery
+              From first message to doorstep — in three steps
             </p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
-            <div className="bg-gray-50 rounded-2xl p-8 border border-gray-100 hover:border-emerald-200 transition">
+            <div className="bg-white rounded-2xl p-8 border border-gray-100 shadow-soft card-lift">
               <div className="w-12 h-12 rounded-xl bg-emerald-100 flex items-center justify-center mb-5">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
                   <path
@@ -476,7 +495,7 @@ export default function LandingPage() {
               </p>
             </div>
 
-            <div className="bg-gray-50 rounded-2xl p-8 border border-gray-100 hover:border-green-200 transition">
+            <div className="bg-white rounded-2xl p-8 border border-gray-100 shadow-soft card-lift">
               <div className="w-12 h-12 rounded-xl bg-green-100 flex items-center justify-center mb-5">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
                   <path
@@ -495,7 +514,7 @@ export default function LandingPage() {
               </p>
             </div>
 
-            <div className="bg-gray-50 rounded-2xl p-8 border border-gray-100 hover:border-teal-200 transition">
+            <div className="bg-white rounded-2xl p-8 border border-gray-100 shadow-soft card-lift">
               <div className="w-12 h-12 rounded-xl bg-teal-100 flex items-center justify-center mb-5">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
                   <path
@@ -512,6 +531,70 @@ export default function LandingPage() {
                 Products sync from Shopify. Stock is locked the moment you buy —
                 no overselling.
               </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Who it's for ─────────────────────────────────────── */}
+      <section className="py-24 px-6 bg-app-gradient">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold">Who it&apos;s for</h2>
+            <p className="mt-3 text-gray-500 text-lg">
+              One platform, three kinds of users
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            {/* Shoppers */}
+            <div className="bg-white rounded-2xl p-8 border border-gray-100 shadow-soft card-lift">
+              <div className="w-12 h-12 rounded-xl bg-emerald-100 flex items-center justify-center mb-5 text-2xl">🛍️</div>
+              <h3 className="text-xl font-semibold mb-2">Shoppers</h3>
+              <p className="text-gray-500 leading-relaxed">
+                Chat with Leo by text or voice to discover products, get
+                recommendations, and place &amp; track orders — no forms, just
+                conversation.
+              </p>
+              <Link
+                href="/demo/login"
+                className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-emerald-600 hover:text-emerald-700"
+              >
+                Try the demo →
+              </Link>
+            </div>
+
+            {/* Merchants */}
+            <div className="bg-white rounded-2xl p-8 border border-gray-100 shadow-soft card-lift">
+              <div className="w-12 h-12 rounded-xl bg-teal-100 flex items-center justify-center mb-5 text-2xl">🏪</div>
+              <h3 className="text-xl font-semibold mb-2">Merchants</h3>
+              <p className="text-gray-500 leading-relaxed">
+                Connect your Shopify store in seconds. Products, prices, images,
+                and live inventory sync in automatically and become shoppable in
+                chat.
+              </p>
+              <Link
+                href="/merchant/login"
+                className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-emerald-600 hover:text-emerald-700"
+              >
+                Merchant portal →
+              </Link>
+            </div>
+
+            {/* Companies */}
+            <div className="bg-white rounded-2xl p-8 border border-gray-100 shadow-soft card-lift">
+              <div className="w-12 h-12 rounded-xl bg-green-100 flex items-center justify-center mb-5 text-2xl">🏢</div>
+              <h3 className="text-xl font-semibold mb-2">Companies</h3>
+              <p className="text-gray-500 leading-relaxed">
+                Embed the agent in your own app with a client ID &amp; secret over
+                a simple WebSocket API, and settle payments with webhooks.
+              </p>
+              <Link
+                href="/portal/login"
+                className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-emerald-600 hover:text-emerald-700"
+              >
+                Get API keys →
+              </Link>
             </div>
           </div>
         </div>
@@ -550,13 +633,24 @@ export default function LandingPage() {
             <div className="col-span-2 md:col-span-1">
               <div className="flex items-center gap-2 mb-4">
                 <div className="w-7 h-7 rounded-md bg-gradient-to-br from-emerald-600 to-teal-600 flex items-center justify-center text-white text-xs font-bold">
-                  F
+                  S
                 </div>
                 <span className="font-bold text-gray-900">ShopAgent</span>
               </div>
               <p className="text-sm text-gray-500 leading-relaxed">
                 AI shopping agent platform. Add voice-powered commerce to any
                 app with a simple API.
+              </p>
+              <p className="mt-4 text-sm text-gray-500">
+                Built by{" "}
+                <a
+                  href="https://codewithmuh.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-semibold text-emerald-600 hover:text-emerald-700"
+                >
+                  CodeWithMuh
+                </a>
               </p>
             </div>
 
@@ -606,15 +700,29 @@ export default function LandingPage() {
               <h4 className="text-sm font-semibold text-gray-900 mb-4">Connect</h4>
               <ul className="space-y-2.5 text-sm text-gray-500">
                 <li>
-                  <Link href="/contact" className="hover:text-gray-900 transition">
-                    Support
-                  </Link>
+                  <a href="https://github.com/codewithmuh/shopagent" target="_blank" rel="noopener noreferrer" className="hover:text-gray-900 transition">
+                    GitHub
+                  </a>
                 </li>
                 <li>
-                  <span className="text-gray-400">X (Twitter)</span>
+                  <a href="https://youtube.com/@codewithmuh" target="_blank" rel="noopener noreferrer" className="hover:text-gray-900 transition">
+                    YouTube
+                  </a>
                 </li>
                 <li>
-                  <span className="text-gray-400">Discord</span>
+                  <a href="https://codewithmuh.com" target="_blank" rel="noopener noreferrer" className="hover:text-gray-900 transition">
+                    Website
+                  </a>
+                </li>
+                <li>
+                  <a href="https://www.linkedin.com/in/muhammad-rashid-daha/" target="_blank" rel="noopener noreferrer" className="hover:text-gray-900 transition">
+                    LinkedIn
+                  </a>
+                </li>
+                <li>
+                  <a href="mailto:contact@codewithmuh.com" className="hover:text-gray-900 transition">
+                    contact@codewithmuh.com
+                  </a>
                 </li>
               </ul>
             </div>
@@ -622,7 +730,10 @@ export default function LandingPage() {
 
           <div className="mt-10 pt-6 border-t border-gray-200 flex flex-col sm:flex-row justify-between items-center gap-3">
             <p className="text-sm text-gray-400">
-              &copy; 2026 ShopAgent. All rights reserved.
+              &copy; 2026 ShopAgent · Built by{" "}
+              <a href="https://codewithmuh.com" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-gray-700">
+                CodeWithMuh
+              </a>
             </p>
             <div className="flex gap-6 text-sm text-gray-400">
               <Link href="/terms" className="hover:text-gray-700 transition">Terms</Link>

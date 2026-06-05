@@ -206,7 +206,7 @@ function MessageBubble({ msg, likedProducts, onLike }: { msg: Message; likedProd
       className={`flex gap-2.5 ${msg.isHistory ? "" : "animate-fade-in-up"}`}
     >
       <div className="w-7 h-7 rounded-lg bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center text-white text-[10px] font-bold flex-shrink-0 mt-0.5 shadow-sm">
-        F
+        L
       </div>
       <div className="flex flex-col max-w-[80%] sm:max-w-[70%]">
         <div
@@ -498,7 +498,7 @@ export default function DemoChatPage() {
     <div className="flex flex-col items-center justify-center h-full text-center px-6 py-8">
       <div className="relative mb-6">
         <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-emerald-500 via-teal-500 to-pink-500 flex items-center justify-center text-white text-3xl font-bold shadow-lg shadow-emerald-500/25">
-          F
+          L
         </div>
         <div className="absolute -bottom-1 -right-1 w-6 h-6 rounded-full bg-green-400 border-[3px] border-gray-50 animate-pulse-glow" />
       </div>
@@ -565,7 +565,7 @@ export default function DemoChatPage() {
         {isTyping && (
           <div className="flex gap-2.5 animate-fade-in-up">
             <div className="w-7 h-7 rounded-lg bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center text-white text-[10px] font-bold flex-shrink-0 mt-0.5 shadow-sm">
-              F
+              L
             </div>
             <div className="bg-white border border-gray-100 rounded-2xl rounded-tl-md px-4 py-3 shadow-sm">
               <TypingIndicator />

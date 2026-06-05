@@ -186,4 +186,38 @@
   .voice-ring-outer.voice-orb-speaking {
     animation: ringPulseActive 1.5s ease-in-out infinite;
   }
+
+  /* ── Depth & glass (shared polish) ───────────────────── */
+
+  /* Frosted translucent surface — for sticky nav bars / sidebars */
+  .glass {
+    background-color: rgb(255 255 255 / 0.72);
+    backdrop-filter: saturate(180%) blur(12px);
+    -webkit-backdrop-filter: saturate(180%) blur(12px);
+  }
+
+  /* Soft layered shadows — gentler and more premium than Tailwind's defaults */
+  .shadow-soft {
+    box-shadow: 0 1px 2px rgba(16, 24, 40, 0.04), 0 6px 20px rgba(16, 24, 40, 0.06);
+  }
+  .shadow-soft-lg {
+    box-shadow: 0 2px 8px rgba(16, 24, 40, 0.05), 0 16px 40px rgba(16, 24, 40, 0.10);
+  }
+
+  /* Lift a card on hover */
+  .card-lift {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .card-lift:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 2px 8px rgba(16, 24, 40, 0.05), 0 16px 40px rgba(16, 24, 40, 0.12);
+  }
+
+  /* Subtle brand-tinted page background (emerald + teal glows) */
+  .bg-app-gradient {
+    background-color: #ffffff;
+    background-image:
+      radial-gradient(1100px 560px at 100% -10%, rgba(16, 185, 129, 0.07), transparent 60%),
+      radial-gradient(900px 500px at -10% 0%, rgba(20, 184, 166, 0.06), transparent 55%);
+  }
 }

@@ -48,7 +48,7 @@ export default function MerchantLoginPage() {
       <div className="hidden lg:flex lg:w-1/2 bg-gradient-to-br from-emerald-600 via-teal-600 to-emerald-800 items-center justify-center p-12">
         <div className="max-w-md text-white">
           <div className="w-14 h-14 rounded-2xl bg-white/20 flex items-center justify-center text-2xl font-bold mb-8">
-            K
+            S
           </div>
           <h1 className="text-4xl font-bold leading-tight">
             Manage your store,
@@ -87,7 +87,7 @@ export default function MerchantLoginPage() {
         <div className="w-full max-w-md">
           <div className="lg:hidden flex items-center gap-2 mb-8">
             <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-emerald-600 to-teal-600 flex items-center justify-center text-white text-sm font-bold">
-              K
+              S
             </div>
             <span className="font-bold text-gray-900">
               ShopAgent <span className="text-emerald-600">Merchant</span>

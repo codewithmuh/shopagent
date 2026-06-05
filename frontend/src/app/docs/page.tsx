@@ -16,7 +16,7 @@ function CopyButton({ text }: { text: string }) {
   return (
     <button
       onClick={handleCopy}
-      className="px-2 py-1 text-xs font-medium rounded-md bg-gray-100 text-gray-600 hover:bg-gray-200 hover:text-gray-800 transition flex-shrink-0"
+      className="px-2 py-1 text-sm font-medium rounded-md bg-gray-100 text-gray-600 hover:bg-gray-200 hover:text-gray-800 transition flex-shrink-0"
     >
       {copied ? "Copied!" : "Copy"}
     </button>
@@ -31,13 +31,13 @@ function CodeBlock({ code, language }: { code: string; language: string }) {
           <span className="w-2.5 h-2.5 rounded-full bg-red-400" />
           <span className="w-2.5 h-2.5 rounded-full bg-yellow-400" />
           <span className="w-2.5 h-2.5 rounded-full bg-green-400" />
-          <span className="text-xs font-medium text-gray-500 ml-2">
+          <span className="text-sm font-medium text-gray-500 ml-2">
             {language}
           </span>
         </div>
         <CopyButton text={code} />
       </div>
-      <pre className="px-4 py-3 text-sm font-mono text-gray-800 overflow-x-auto leading-relaxed">
+      <pre className="px-4 py-3 text-base font-mono text-gray-800 overflow-x-auto leading-relaxed">
         <code>{code}</code>
       </pre>
     </div>
@@ -55,7 +55,7 @@ function Section({
 }) {
   return (
     <section id={id} className="scroll-mt-24">
-      <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-100">
+      <h2 className="text-2xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-100">
         {title}
       </h2>
       <div className="space-y-4">{children}</div>
@@ -90,16 +90,16 @@ function EndpointCard({
       <div className="px-5 py-4 border-b border-gray-100">
         <div className="flex items-center gap-3">
           <span
-            className={`px-2 py-0.5 text-xs font-bold rounded ${methodColor}`}
+            className={`px-2 py-0.5 text-sm font-bold rounded ${methodColor}`}
           >
             {method}
           </span>
-          <code className="text-sm font-mono text-gray-900">{path}</code>
+          <code className="text-base font-mono text-gray-900">{path}</code>
         </div>
-        <p className="text-sm text-gray-500 mt-2">{description}</p>
+        <p className="text-base text-gray-500 mt-2">{description}</p>
       </div>
       {children && (
-        <div className="px-5 py-4 bg-gray-50/50 text-sm">{children}</div>
+        <div className="px-5 py-4 bg-gray-50/50 text-base">{children}</div>
       )}
     </div>
   );
@@ -140,10 +140,10 @@ function FlowNode({
       >
         {icon}
       </div>
-      <p className="text-xs font-semibold text-gray-900 mt-2 text-center leading-tight">
+      <p className="text-sm font-semibold text-gray-900 mt-2 text-center leading-tight">
         {label}
       </p>
-      <p className="text-[10px] text-gray-500 mt-0.5 text-center leading-tight">
+      <p className="text-xs text-gray-500 mt-0.5 text-center leading-tight">
         {sub}
       </p>
     </div>
@@ -258,14 +258,14 @@ function FlowDiagram() {
       <div className="relative">
         <div className="rounded-2xl border-2 border-dashed border-emerald-200 bg-emerald-50/30 p-5 pb-6">
           {/* Platform label */}
-          <div className="absolute -top-3.5 left-4 px-3 py-0.5 bg-gradient-to-r from-emerald-600 to-teal-600 text-white text-xs font-bold rounded-full shadow">
+          <div className="absolute -top-3.5 left-4 px-3 py-0.5 bg-gradient-to-r from-emerald-600 to-teal-600 text-white text-sm font-bold rounded-full shadow">
             ShopAgent Platform
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-3">
             {/* Left: Merchant supply side */}
             <div className="rounded-xl border border-orange-200 bg-white p-4">
-              <p className="text-[10px] font-bold text-orange-500 uppercase tracking-wider mb-3">
+              <p className="text-xs font-bold text-orange-500 uppercase tracking-wider mb-3">
                 Supply Side
               </p>
               <div className="flex items-start gap-3">
@@ -275,14 +275,14 @@ function FlowDiagram() {
                 <Arrow />
                 <FlowNode icon={icons.catalog} label="Unified Catalog" sub="All products indexed" gradient="from-emerald-500 to-blue-500" />
               </div>
-              <p className="text-[10px] text-gray-400 mt-3 leading-relaxed">
+              <p className="text-xs text-gray-400 mt-3 leading-relaxed">
                 Merchants connect their stores. Products, variants, prices, and inventory are synced automatically into ShopAgent&apos;s unified catalog.
               </p>
             </div>
 
             {/* Right: AI Agent */}
             <div className="rounded-xl border border-teal-200 bg-white p-4">
-              <p className="text-[10px] font-bold text-teal-500 uppercase tracking-wider mb-3">
+              <p className="text-xs font-bold text-teal-500 uppercase tracking-wider mb-3">
                 AI Engine
               </p>
               <div className="flex items-start gap-3">
@@ -292,7 +292,7 @@ function FlowDiagram() {
                 <Arrow />
                 <FlowNode icon={icons.chat} label="Conversation" sub="Natural language" gradient="from-pink-500 to-rose-500" />
               </div>
-              <p className="text-[10px] text-gray-400 mt-3 leading-relaxed">
+              <p className="text-xs text-gray-400 mt-3 leading-relaxed">
                 Claude-powered AI agent understands natural language, searches across all merchant catalogs, recommends products, and handles the full purchase flow.
               </p>
             </div>
@@ -305,7 +305,7 @@ function FlowDiagram() {
         <div className="flex flex-col items-center">
           <div className="flex items-center gap-3">
             <div className="h-[2px] w-16 bg-gray-300" />
-            <span className="text-[10px] font-semibold text-emerald-600 bg-emerald-50 px-2.5 py-1 rounded-full border border-emerald-200">
+            <span className="text-xs font-semibold text-emerald-600 bg-emerald-50 px-2.5 py-1 rounded-full border border-emerald-200">
               REST API + WebSocket
             </span>
             <div className="h-[2px] w-16 bg-gray-300" />
@@ -320,7 +320,7 @@ function FlowDiagram() {
       {/* ── ROW 2: Your App (integration) ─────────────────── */}
       <div className="relative">
         <div className="rounded-2xl border-2 border-dashed border-green-200 bg-green-50/30 p-5 pb-6">
-          <div className="absolute -top-3.5 left-4 px-3 py-0.5 bg-gradient-to-r from-green-600 to-emerald-600 text-white text-xs font-bold rounded-full shadow">
+          <div className="absolute -top-3.5 left-4 px-3 py-0.5 bg-gradient-to-r from-green-600 to-emerald-600 text-white text-sm font-bold rounded-full shadow">
             Your Application
           </div>
           <div className="flex flex-wrap items-start justify-center gap-3 mt-3">
@@ -330,7 +330,7 @@ function FlowDiagram() {
             <Arrow label="Users arrive" />
             <FlowNode icon={icons.user} label="End Users" sub="Your customers" gradient="from-teal-500 to-cyan-500" />
           </div>
-          <p className="text-[10px] text-gray-400 mt-3 leading-relaxed text-center">
+          <p className="text-xs text-gray-400 mt-3 leading-relaxed text-center">
             You integrate ShopAgent by adding your API keys. Embed the chat widget or connect via WebSocket. Your users chat with the AI agent directly in your app.
           </p>
         </div>
@@ -341,7 +341,7 @@ function FlowDiagram() {
         <div className="flex flex-col items-center">
           <div className="flex items-center gap-3">
             <div className="h-[2px] w-12 bg-gray-300" />
-            <span className="text-[10px] font-semibold text-amber-600 bg-amber-50 px-2.5 py-1 rounded-full border border-amber-200">
+            <span className="text-xs font-semibold text-amber-600 bg-amber-50 px-2.5 py-1 rounded-full border border-amber-200">
               User wants to buy
             </span>
             <div className="h-[2px] w-12 bg-gray-300" />
@@ -356,7 +356,7 @@ function FlowDiagram() {
       {/* ── ROW 3: Purchase Flow ──────────────────────────── */}
       <div className="relative">
         <div className="rounded-2xl border-2 border-dashed border-amber-200 bg-amber-50/30 p-5 pb-6">
-          <div className="absolute -top-3.5 left-4 px-3 py-0.5 bg-gradient-to-r from-amber-600 to-orange-600 text-white text-xs font-bold rounded-full shadow">
+          <div className="absolute -top-3.5 left-4 px-3 py-0.5 bg-gradient-to-r from-amber-600 to-orange-600 text-white text-sm font-bold rounded-full shadow">
             Purchase Flow
           </div>
           <div className="flex flex-wrap items-start justify-center gap-3 mt-3">
@@ -368,7 +368,7 @@ function FlowDiagram() {
             <Arrow label="Notify" />
             <FlowNode icon={icons.truck} label="Fulfillment" sub="Merchant ships" gradient="from-teal-500 to-cyan-500" />
           </div>
-          <p className="text-[10px] text-gray-400 mt-3 leading-relaxed text-center">
+          <p className="text-xs text-gray-400 mt-3 leading-relaxed text-center">
             When a user decides to purchase, ShopAgent sends a <strong>balance_check</strong> webhook to your app. You confirm the balance, ShopAgent sends a <strong>charge</strong> webhook, you process payment. The order is created and the merchant is notified to fulfill it.
           </p>
         </div>
@@ -378,37 +378,37 @@ function FlowDiagram() {
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
         <div className="bg-white rounded-xl border border-gray-200 p-4">
           <div className="flex items-center gap-2 mb-2">
-            <div className="w-6 h-6 rounded-md bg-orange-100 text-orange-600 flex items-center justify-center text-xs font-bold">1</div>
-            <p className="text-sm font-semibold text-gray-900">Merchants Onboard</p>
+            <div className="w-6 h-6 rounded-md bg-orange-100 text-orange-600 flex items-center justify-center text-sm font-bold">1</div>
+            <p className="text-base font-semibold text-gray-900">Merchants Onboard</p>
           </div>
-          <p className="text-xs text-gray-500 leading-relaxed">
+          <p className="text-sm text-gray-500 leading-relaxed">
             Merchants connect their Shopify store via the merchant portal. Products auto-sync into ShopAgent&apos;s catalog.
           </p>
         </div>
         <div className="bg-white rounded-xl border border-gray-200 p-4">
           <div className="flex items-center gap-2 mb-2">
-            <div className="w-6 h-6 rounded-md bg-green-100 text-green-600 flex items-center justify-center text-xs font-bold">2</div>
-            <p className="text-sm font-semibold text-gray-900">You Integrate</p>
+            <div className="w-6 h-6 rounded-md bg-green-100 text-green-600 flex items-center justify-center text-sm font-bold">2</div>
+            <p className="text-base font-semibold text-gray-900">You Integrate</p>
           </div>
-          <p className="text-xs text-gray-500 leading-relaxed">
+          <p className="text-sm text-gray-500 leading-relaxed">
             Get API keys from the dashboard. Embed the chat widget or connect via WebSocket with your client ID and secret.
           </p>
         </div>
         <div className="bg-white rounded-xl border border-gray-200 p-4">
           <div className="flex items-center gap-2 mb-2">
-            <div className="w-6 h-6 rounded-md bg-teal-100 text-teal-600 flex items-center justify-center text-xs font-bold">3</div>
-            <p className="text-sm font-semibold text-gray-900">Users Shop</p>
+            <div className="w-6 h-6 rounded-md bg-teal-100 text-teal-600 flex items-center justify-center text-sm font-bold">3</div>
+            <p className="text-base font-semibold text-gray-900">Users Shop</p>
           </div>
-          <p className="text-xs text-gray-500 leading-relaxed">
+          <p className="text-sm text-gray-500 leading-relaxed">
             Your users chat with the AI agent in natural language. It searches products, gives personalized recommendations, and handles checkout.
           </p>
         </div>
         <div className="bg-white rounded-xl border border-gray-200 p-4">
           <div className="flex items-center gap-2 mb-2">
-            <div className="w-6 h-6 rounded-md bg-amber-100 text-amber-600 flex items-center justify-center text-xs font-bold">4</div>
-            <p className="text-sm font-semibold text-gray-900">Orders Fulfilled</p>
+            <div className="w-6 h-6 rounded-md bg-amber-100 text-amber-600 flex items-center justify-center text-sm font-bold">4</div>
+            <p className="text-base font-semibold text-gray-900">Orders Fulfilled</p>
           </div>
-          <p className="text-xs text-gray-500 leading-relaxed">
+          <p className="text-sm text-gray-500 leading-relaxed">
             Webhooks handle balance checks and charges. Orders are created automatically and merchants fulfill them.
           </p>
         </div>
@@ -457,18 +457,18 @@ export default function HomePage() {
     <div className="min-h-screen flex flex-col bg-white">
       {/* ── Nav ─────────────────────────────────────────── */}
       <nav className="sticky top-0 z-40 bg-white/80 backdrop-blur-lg border-b border-gray-100 px-6 py-3">
-        <div className="max-w-6xl mx-auto flex items-center justify-between">
+        <div className="max-w-7xl mx-auto flex items-center justify-between">
           <Link href="/" className="flex items-center gap-2">
-            <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-emerald-600 to-teal-600 flex items-center justify-center text-white text-sm font-bold">
-              F
+            <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-emerald-600 to-teal-600 flex items-center justify-center text-white text-base font-bold">
+              S
             </div>
-            <span className="text-xl font-bold tracking-tight">ShopAgent</span>
+            <span className="text-2xl font-bold tracking-tight">ShopAgent</span>
           </Link>
 
           <div className="hidden md:flex items-center gap-1">
             <Link
               href="/contact"
-              className="px-3 py-2 text-sm text-gray-600 hover:text-gray-900 rounded-lg hover:bg-gray-50 transition"
+              className="px-3 py-2 text-base text-gray-600 hover:text-gray-900 rounded-lg hover:bg-gray-50 transition"
             >
               Contact
             </Link>
@@ -477,13 +477,13 @@ export default function HomePage() {
           <div className="flex items-center gap-3">
             <Link
               href="/portal/login"
-              className="hidden sm:inline-flex px-4 py-2 text-sm font-medium text-gray-600 hover:text-gray-900 transition"
+              className="hidden sm:inline-flex px-4 py-2 text-base font-medium text-gray-600 hover:text-gray-900 transition"
             >
               Sign In
             </Link>
             <Link
               href="/portal/login"
-              className="px-5 py-2 text-sm font-medium bg-gray-900 text-white rounded-lg hover:bg-gray-800 transition"
+              className="px-5 py-2 text-base font-medium bg-gray-900 text-white rounded-lg hover:bg-gray-800 transition"
             >
               Get API Keys
             </Link>
@@ -492,11 +492,11 @@ export default function HomePage() {
       </nav>
 
       {/* ── Docs Content ──────────────────────────────── */}
-      <main className="flex-1 max-w-6xl mx-auto w-full px-6 py-10">
+      <main className="flex-1 max-w-7xl mx-auto w-full px-6 py-10">
         <div className="flex gap-8">
           {/* Sticky sidebar / TOC */}
-          <nav className="hidden lg:block w-48 flex-shrink-0 sticky top-20 self-start">
-            <p className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-3">
+          <nav className="hidden lg:block w-56 flex-shrink-0 sticky top-20 self-start">
+            <p className="text-sm font-semibold text-gray-400 uppercase tracking-wider mb-3">
               On this page
             </p>
             <ul className="space-y-1 border-l-2 border-gray-100">
@@ -506,7 +506,7 @@ export default function HomePage() {
                   <li key={link.href} className="-ml-[2px]">
                     <button
                       onClick={() => handleNavClick(link.href)}
-                      className={`block w-full text-left pl-3 pr-3 py-1.5 text-sm border-l-2 transition ${
+                      className={`block w-full text-left pl-3 pr-3 py-1.5 text-base border-l-2 transition ${
                         isActive
                           ? "text-emerald-700 font-medium border-emerald-600"
                           : "text-gray-500 hover:text-gray-900 border-transparent hover:border-gray-300"
@@ -523,18 +523,19 @@ export default function HomePage() {
           {/* Main docs content */}
           <div ref={contentRef} className="flex-1 min-w-0 space-y-12">
             <div>
-              <h1 className="text-2xl font-bold text-gray-900">
+              <h1 className="text-3xl font-bold text-gray-900">
                 API Documentation
               </h1>
               <p className="text-gray-500 mt-1">
-                Everything you need to integrate the ShopAgent AI agent into your
-                platform
+                Everything you need to embed Leo — the ShopAgent AI shopping agent —
+                into your own app: API keys, a live WebSocket connection, and payment
+                webhooks. Use the menu on the right to jump between sections.
               </p>
             </div>
 
             {/* System Flow */}
             <Section id="system-flow" title="How It Works">
-              <p className="text-sm text-gray-500 mb-4">
+              <p className="text-base text-gray-500 mb-4">
                 ShopAgent is the platform — merchants supply products, the AI agent
                 powers shopping. You integrate it into your app.
               </p>
@@ -544,10 +545,10 @@ export default function HomePage() {
             {/* Quick Start */}
             <Section id="quick-start" title="Quick Start">
               <div className="bg-gradient-to-r from-emerald-50 to-teal-50 border border-emerald-100 rounded-xl p-4">
-                <p className="text-sm text-emerald-800 font-medium mb-1">
+                <p className="text-base text-emerald-800 font-medium mb-1">
                   Get up and running in 5 minutes
                 </p>
-                <p className="text-sm text-emerald-700 leading-relaxed">
+                <p className="text-base text-emerald-700 leading-relaxed">
                   Follow these steps to connect your app to the ShopAgent AI shopping agent.
                 </p>
               </div>
@@ -556,16 +557,16 @@ export default function HomePage() {
                 {/* Step 1 */}
                 <div className="bg-white rounded-xl border border-gray-200 p-5">
                   <div className="flex items-center gap-3 mb-3">
-                    <div className="w-7 h-7 rounded-lg bg-emerald-600 text-white flex items-center justify-center text-xs font-bold flex-shrink-0">1</div>
-                    <p className="text-sm font-semibold text-gray-900">Create an account &amp; get API keys</p>
+                    <div className="w-7 h-7 rounded-lg bg-emerald-600 text-white flex items-center justify-center text-sm font-bold flex-shrink-0">1</div>
+                    <p className="text-base font-semibold text-gray-900">Create an account &amp; get API keys</p>
                   </div>
-                  <p className="text-sm text-gray-500 leading-relaxed ml-10">
+                  <p className="text-base text-gray-500 leading-relaxed ml-10">
                     Sign up on the{" "}
                     <Link href="/portal/login" className="text-emerald-600 underline font-medium">Portal</Link>
                     {" "}to create your company account. You&apos;ll receive a{" "}
-                    <code className="text-xs font-mono bg-gray-100 text-gray-800 px-1.5 py-0.5 rounded">Client ID</code>,{" "}
-                    <code className="text-xs font-mono bg-gray-100 text-gray-800 px-1.5 py-0.5 rounded">Secret Key</code>, and{" "}
-                    <code className="text-xs font-mono bg-gray-100 text-gray-800 px-1.5 py-0.5 rounded">Webhook Secret</code>
+                    <code className="text-sm font-mono bg-gray-100 text-gray-800 px-1.5 py-0.5 rounded">Client ID</code>,{" "}
+                    <code className="text-sm font-mono bg-gray-100 text-gray-800 px-1.5 py-0.5 rounded">Secret Key</code>, and{" "}
+                    <code className="text-sm font-mono bg-gray-100 text-gray-800 px-1.5 py-0.5 rounded">Webhook Secret</code>
                     {" "}from your dashboard.
                   </p>
                 </div>
@@ -573,10 +574,10 @@ export default function HomePage() {
                 {/* Step 2 */}
                 <div className="bg-white rounded-xl border border-gray-200 p-5">
                   <div className="flex items-center gap-3 mb-3">
-                    <div className="w-7 h-7 rounded-lg bg-emerald-600 text-white flex items-center justify-center text-xs font-bold flex-shrink-0">2</div>
-                    <p className="text-sm font-semibold text-gray-900">Register your users</p>
+                    <div className="w-7 h-7 rounded-lg bg-emerald-600 text-white flex items-center justify-center text-sm font-bold flex-shrink-0">2</div>
+                    <p className="text-base font-semibold text-gray-900">Register your users</p>
                   </div>
-                  <p className="text-sm text-gray-500 leading-relaxed ml-10 mb-3">
+                  <p className="text-base text-gray-500 leading-relaxed ml-10 mb-3">
                     Create users in ShopAgent so the agent can track their conversations and orders.
                     Each user needs a unique ID from your system.
                   </p>
@@ -595,10 +596,10 @@ export default function HomePage() {
                 {/* Step 3 */}
                 <div className="bg-white rounded-xl border border-gray-200 p-5">
                   <div className="flex items-center gap-3 mb-3">
-                    <div className="w-7 h-7 rounded-lg bg-emerald-600 text-white flex items-center justify-center text-xs font-bold flex-shrink-0">3</div>
-                    <p className="text-sm font-semibold text-gray-900">Connect via WebSocket</p>
+                    <div className="w-7 h-7 rounded-lg bg-emerald-600 text-white flex items-center justify-center text-sm font-bold flex-shrink-0">3</div>
+                    <p className="text-base font-semibold text-gray-900">Connect via WebSocket</p>
                   </div>
-                  <p className="text-sm text-gray-500 leading-relaxed ml-10 mb-3">
+                  <p className="text-base text-gray-500 leading-relaxed ml-10 mb-3">
                     Open a WebSocket connection for each user session. The AI agent handles the
                     conversation, product search, and checkout flow automatically.
                   </p>
@@ -626,13 +627,13 @@ ws.onmessage = (e) => {
                 {/* Step 4 */}
                 <div className="bg-white rounded-xl border border-gray-200 p-5">
                   <div className="flex items-center gap-3 mb-3">
-                    <div className="w-7 h-7 rounded-lg bg-emerald-600 text-white flex items-center justify-center text-xs font-bold flex-shrink-0">4</div>
-                    <p className="text-sm font-semibold text-gray-900">Handle webhooks for payments</p>
+                    <div className="w-7 h-7 rounded-lg bg-emerald-600 text-white flex items-center justify-center text-sm font-bold flex-shrink-0">4</div>
+                    <p className="text-base font-semibold text-gray-900">Handle webhooks for payments</p>
                   </div>
-                  <p className="text-sm text-gray-500 leading-relaxed ml-10 mb-3">
+                  <p className="text-base text-gray-500 leading-relaxed ml-10 mb-3">
                     Set up a webhook endpoint on your server. When a user wants to buy something,
-                    ShopAgent sends a <code className="text-xs font-mono bg-gray-100 text-gray-800 px-1.5 py-0.5 rounded">balance_check</code>
-                    {" "}event, then a <code className="text-xs font-mono bg-gray-100 text-gray-800 px-1.5 py-0.5 rounded">charge</code> event.
+                    ShopAgent sends a <code className="text-sm font-mono bg-gray-100 text-gray-800 px-1.5 py-0.5 rounded">balance_check</code>
+                    {" "}event, then a <code className="text-sm font-mono bg-gray-100 text-gray-800 px-1.5 py-0.5 rounded">charge</code> event.
                     You respond with the user&apos;s balance and payment confirmation.
                   </p>
                   <div className="ml-10">
@@ -651,10 +652,10 @@ ws.onmessage = (e) => {
                 {/* Step 5 */}
                 <div className="bg-white rounded-xl border border-gray-200 p-5">
                   <div className="flex items-center gap-3 mb-3">
-                    <div className="w-7 h-7 rounded-lg bg-green-600 text-white flex items-center justify-center text-xs font-bold flex-shrink-0">5</div>
-                    <p className="text-sm font-semibold text-gray-900">Done! Monitor via REST API</p>
+                    <div className="w-7 h-7 rounded-lg bg-green-600 text-white flex items-center justify-center text-sm font-bold flex-shrink-0">5</div>
+                    <p className="text-base font-semibold text-gray-900">Done! Monitor via REST API</p>
                   </div>
-                  <p className="text-sm text-gray-500 leading-relaxed ml-10">
+                  <p className="text-base text-gray-500 leading-relaxed ml-10">
                     Use the REST endpoints to fetch chat history, list users, view orders,
                     and manage addresses. The agent handles everything else — product discovery,
                     recommendations, and the purchase conversation.
@@ -666,10 +667,10 @@ ws.onmessage = (e) => {
             {/* Authentication */}
             <Section id="authentication" title="Authentication">
               <div className="bg-emerald-50 border border-emerald-100 rounded-xl p-4">
-                <p className="text-sm text-emerald-800 font-medium mb-2">
+                <p className="text-base text-emerald-800 font-medium mb-2">
                   API Key Authentication
                 </p>
-                <p className="text-sm text-emerald-700 leading-relaxed">
+                <p className="text-base text-emerald-700 leading-relaxed">
                   All API requests must include your credentials via HTTP
                   headers. You can find your Client ID and Secret Key on the{" "}
                   <Link
@@ -684,19 +685,19 @@ ws.onmessage = (e) => {
 
               {/* Base URL */}
               <div className="bg-white rounded-xl border border-gray-200 p-5">
-                <p className="text-sm font-medium text-gray-900 mb-3">
+                <p className="text-base font-medium text-gray-900 mb-3">
                   Base URLs
                 </p>
                 <div className="space-y-2">
                   <div className="flex items-start gap-3">
-                    <span className="text-xs font-semibold text-gray-400 uppercase w-12 flex-shrink-0 pt-1">REST</span>
-                    <code className="text-sm font-mono text-emerald-600 bg-emerald-50 px-3 py-1.5 rounded-lg">
+                    <span className="text-sm font-semibold text-gray-400 uppercase w-12 flex-shrink-0 pt-1">REST</span>
+                    <code className="text-base font-mono text-emerald-600 bg-emerald-50 px-3 py-1.5 rounded-lg">
                       https://api.example.com
                     </code>
                   </div>
                   <div className="flex items-start gap-3">
-                    <span className="text-xs font-semibold text-gray-400 uppercase w-12 flex-shrink-0 pt-1">WS</span>
-                    <code className="text-sm font-mono text-emerald-600 bg-emerald-50 px-3 py-1.5 rounded-lg">
+                    <span className="text-sm font-semibold text-gray-400 uppercase w-12 flex-shrink-0 pt-1">WS</span>
+                    <code className="text-base font-mono text-emerald-600 bg-emerald-50 px-3 py-1.5 rounded-lg">
                       wss://api.example.com
                     </code>
                   </div>
@@ -704,23 +705,23 @@ ws.onmessage = (e) => {
               </div>
 
               <div className="bg-white rounded-xl border border-gray-200 p-5">
-                <p className="text-sm font-medium text-gray-900 mb-3">
+                <p className="text-base font-medium text-gray-900 mb-3">
                   Required Headers
                 </p>
                 <div className="space-y-2">
                   <div className="flex items-start gap-3">
-                    <code className="text-xs font-mono bg-gray-100 text-gray-800 px-2 py-1 rounded flex-shrink-0">
+                    <code className="text-sm font-mono bg-gray-100 text-gray-800 px-2 py-1 rounded flex-shrink-0">
                       X-Client-ID
                     </code>
-                    <p className="text-sm text-gray-600">
+                    <p className="text-base text-gray-600">
                       Your unique client identifier (found on the Dashboard)
                     </p>
                   </div>
                   <div className="flex items-start gap-3">
-                    <code className="text-xs font-mono bg-gray-100 text-gray-800 px-2 py-1 rounded flex-shrink-0">
+                    <code className="text-sm font-mono bg-gray-100 text-gray-800 px-2 py-1 rounded flex-shrink-0">
                       X-Secret-Key
                     </code>
-                    <p className="text-sm text-gray-600">
+                    <p className="text-base text-gray-600">
                       Your secret API key (keep this private, never expose in
                       client-side code)
                     </p>
@@ -741,13 +742,13 @@ Content-Type: application/json`}
             {/* WebSocket */}
             <Section id="websocket" title="WebSocket Chat">
               <div className="bg-white rounded-xl border border-gray-200 p-5">
-                <p className="text-sm font-medium text-gray-900 mb-2">
+                <p className="text-base font-medium text-gray-900 mb-2">
                   WebSocket Endpoint
                 </p>
-                <code className="text-sm font-mono text-emerald-600 bg-emerald-50 px-3 py-1.5 rounded-lg inline-block">
+                <code className="text-base font-mono text-emerald-600 bg-emerald-50 px-3 py-1.5 rounded-lg inline-block">
                   wss://api.example.com/ws/agent/?client_id=...&amp;secret_key=...&amp;user_id=...
                 </code>
-                <p className="text-sm text-gray-500 mt-3 leading-relaxed">
+                <p className="text-base text-gray-500 mt-3 leading-relaxed">
                   Open a persistent connection for each user session. The AI agent manages the
                   full conversation — product discovery, recommendations, size/variant selection,
                   and checkout — all through natural language. The connection stays open until
@@ -756,53 +757,53 @@ Content-Type: application/json`}
               </div>
 
               <div className="bg-white rounded-xl border border-gray-200 p-5">
-                <p className="text-sm font-medium text-gray-900 mb-3">
+                <p className="text-base font-medium text-gray-900 mb-3">
                   Connection Parameters
                 </p>
                 <div className="space-y-3">
                   <div className="flex items-start gap-3">
-                    <code className="text-xs font-mono bg-gray-100 text-gray-800 px-2 py-1 rounded flex-shrink-0">
+                    <code className="text-sm font-mono bg-gray-100 text-gray-800 px-2 py-1 rounded flex-shrink-0">
                       client_id
                     </code>
                     <div>
-                      <p className="text-sm text-gray-600">
+                      <p className="text-base text-gray-600">
                         Your company&apos;s Client ID
                       </p>
-                      <p className="text-xs text-gray-400 mt-0.5">Required — used for authentication</p>
+                      <p className="text-sm text-gray-400 mt-0.5">Required — used for authentication</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
-                    <code className="text-xs font-mono bg-gray-100 text-gray-800 px-2 py-1 rounded flex-shrink-0">
+                    <code className="text-sm font-mono bg-gray-100 text-gray-800 px-2 py-1 rounded flex-shrink-0">
                       secret_key
                     </code>
                     <div>
-                      <p className="text-sm text-gray-600">
+                      <p className="text-base text-gray-600">
                         Your company&apos;s Secret Key
                       </p>
-                      <p className="text-xs text-gray-400 mt-0.5">Required — keep server-side only</p>
+                      <p className="text-sm text-gray-400 mt-0.5">Required — keep server-side only</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
-                    <code className="text-xs font-mono bg-gray-100 text-gray-800 px-2 py-1 rounded flex-shrink-0">
+                    <code className="text-sm font-mono bg-gray-100 text-gray-800 px-2 py-1 rounded flex-shrink-0">
                       user_id
                     </code>
                     <div>
-                      <p className="text-sm text-gray-600">
+                      <p className="text-base text-gray-600">
                         Your app&apos;s unique identifier for this user
                       </p>
-                      <p className="text-xs text-gray-400 mt-0.5">Required — must be pre-registered via REST API</p>
+                      <p className="text-sm text-gray-400 mt-0.5">Required — must be pre-registered via REST API</p>
                     </div>
                   </div>
                 </div>
               </div>
 
               <div className="bg-white rounded-xl border border-gray-200 p-5">
-                <p className="text-sm font-medium text-gray-900 mb-3">
+                <p className="text-base font-medium text-gray-900 mb-3">
                   Message Format
                 </p>
                 <div className="space-y-4">
                   <div>
-                    <p className="text-xs font-semibold text-gray-400 uppercase tracking-wide mb-1">
+                    <p className="text-sm font-semibold text-gray-400 uppercase tracking-wide mb-1">
                       Send (Client → Server)
                     </p>
                     <CodeBlock
@@ -811,7 +812,7 @@ Content-Type: application/json`}
                     />
                   </div>
                   <div>
-                    <p className="text-xs font-semibold text-gray-400 uppercase tracking-wide mb-1">
+                    <p className="text-sm font-semibold text-gray-400 uppercase tracking-wide mb-1">
                       Receive (Server → Client) — Text response
                     </p>
                     <CodeBlock
@@ -823,7 +824,7 @@ Content-Type: application/json`}
                     />
                   </div>
                   <div>
-                    <p className="text-xs font-semibold text-gray-400 uppercase tracking-wide mb-1">
+                    <p className="text-sm font-semibold text-gray-400 uppercase tracking-wide mb-1">
                       Receive (Server → Client) — With product results
                     </p>
                     <CodeBlock
@@ -852,7 +853,7 @@ Content-Type: application/json`}
                     />
                   </div>
                   <div>
-                    <p className="text-xs font-semibold text-gray-400 uppercase tracking-wide mb-1">
+                    <p className="text-sm font-semibold text-gray-400 uppercase tracking-wide mb-1">
                       Receive (Server → Client) — Order placed
                     </p>
                     <CodeBlock
@@ -873,10 +874,10 @@ Content-Type: application/json`}
               </div>
 
               <div className="bg-gray-50 rounded-xl border border-gray-200 p-4">
-                <p className="text-sm font-medium text-gray-900 mb-2">
+                <p className="text-base font-medium text-gray-900 mb-2">
                   Agent Capabilities
                 </p>
-                <p className="text-xs text-gray-500 mb-3">
+                <p className="text-sm text-gray-500 mb-3">
                   The AI agent uses these tools internally — you don&apos;t need to call them. Just send natural language messages.
                 </p>
                 <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
@@ -891,8 +892,8 @@ Content-Type: application/json`}
                     { name: "order_history", desc: "View past orders" },
                   ].map((tool) => (
                     <div key={tool.name} className="bg-white rounded-lg border border-gray-200 p-2.5">
-                      <code className="text-[10px] font-mono text-emerald-600">{tool.name}</code>
-                      <p className="text-[10px] text-gray-400 mt-0.5">{tool.desc}</p>
+                      <code className="text-xs font-mono text-emerald-600">{tool.name}</code>
+                      <p className="text-xs text-gray-400 mt-0.5">{tool.desc}</p>
                     </div>
                   ))}
                 </div>
@@ -901,13 +902,13 @@ Content-Type: application/json`}
 
             {/* REST Endpoints */}
             <Section id="rest-endpoints" title="REST Endpoints">
-              <p className="text-sm text-gray-500">
+              <p className="text-base text-gray-500">
                 These endpoints require{" "}
-                <code className="text-xs font-mono bg-gray-100 text-gray-800 px-1.5 py-0.5 rounded">
+                <code className="text-sm font-mono bg-gray-100 text-gray-800 px-1.5 py-0.5 rounded">
                   X-Client-ID
                 </code>{" "}
                 and{" "}
-                <code className="text-xs font-mono bg-gray-100 text-gray-800 px-1.5 py-0.5 rounded">
+                <code className="text-sm font-mono bg-gray-100 text-gray-800 px-1.5 py-0.5 rounded">
                   X-Secret-Key
                 </code>{" "}
                 headers for authentication.
@@ -921,12 +922,12 @@ Content-Type: application/json`}
                 >
                   <p className="text-gray-600 mb-2">
                     Register a user before they can connect via WebSocket. The{" "}
-                    <code className="text-xs font-mono bg-gray-100 text-gray-800 px-1.5 py-0.5 rounded">external_user_id</code>
+                    <code className="text-sm font-mono bg-gray-100 text-gray-800 px-1.5 py-0.5 rounded">external_user_id</code>
                     {" "}should be your app&apos;s unique identifier for this user.
                   </p>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                     <div>
-                      <p className="text-xs font-semibold text-gray-400 uppercase tracking-wide mb-1">Request body</p>
+                      <p className="text-sm font-semibold text-gray-400 uppercase tracking-wide mb-1">Request body</p>
                       <CodeBlock
                         language="JSON"
                         code={`{
@@ -936,7 +937,7 @@ Content-Type: application/json`}
                       />
                     </div>
                     <div>
-                      <p className="text-xs font-semibold text-gray-400 uppercase tracking-wide mb-1">Response (201)</p>
+                      <p className="text-sm font-semibold text-gray-400 uppercase tracking-wide mb-1">Response (201)</p>
                       <CodeBlock
                         language="JSON"
                         code={`{
@@ -959,7 +960,7 @@ Content-Type: application/json`}
                     Returns a paginated list of users who have interacted with
                     your integration of the ShopAgent agent.
                   </p>
-                  <p className="text-xs font-semibold text-gray-400 uppercase tracking-wide mb-1">Response (200)</p>
+                  <p className="text-sm font-semibold text-gray-400 uppercase tracking-wide mb-1">Response (200)</p>
                   <CodeBlock
                     language="JSON"
                     code={`{
@@ -987,7 +988,7 @@ Content-Type: application/json`}
                     the AI agent, ordered chronologically. Useful for displaying
                     past conversations or syncing state.
                   </p>
-                  <p className="text-xs font-semibold text-gray-400 uppercase tracking-wide mb-1">Response (200)</p>
+                  <p className="text-sm font-semibold text-gray-400 uppercase tracking-wide mb-1">Response (200)</p>
                   <CodeBlock
                     language="JSON"
                     code={`[
@@ -1015,7 +1016,7 @@ Content-Type: application/json`}
                     Returns order history including status, line items,
                     amounts, and fulfillment tracking.
                   </p>
-                  <p className="text-xs font-semibold text-gray-400 uppercase tracking-wide mb-1">Response (200)</p>
+                  <p className="text-sm font-semibold text-gray-400 uppercase tracking-wide mb-1">Response (200)</p>
                   <CodeBlock
                     language="JSON"
                     code={`[
@@ -1053,7 +1054,7 @@ Content-Type: application/json`}
                     Returns all shipping addresses on file. Users can save addresses
                     through the AI agent conversation or you can add them via this endpoint.
                   </p>
-                  <p className="text-xs font-semibold text-gray-400 uppercase tracking-wide mb-1">Response (200)</p>
+                  <p className="text-sm font-semibold text-gray-400 uppercase tracking-wide mb-1">Response (200)</p>
                   <CodeBlock
                     language="JSON"
                     code={`[
@@ -1076,12 +1077,12 @@ Content-Type: application/json`}
             {/* Webhooks */}
             <Section id="webhooks" title="Webhooks">
               <div className="bg-amber-50 border border-amber-100 rounded-xl p-4">
-                <p className="text-sm text-amber-800 font-medium mb-1">
+                <p className="text-base text-amber-800 font-medium mb-1">
                   Signature Verification
                 </p>
-                <p className="text-sm text-amber-700 leading-relaxed">
+                <p className="text-base text-amber-700 leading-relaxed">
                   All webhook requests include an{" "}
-                  <code className="text-xs font-mono bg-amber-100 text-amber-900 px-1.5 py-0.5 rounded">
+                  <code className="text-sm font-mono bg-amber-100 text-amber-900 px-1.5 py-0.5 rounded">
                     X-Webhook-Signature
                   </code>{" "}
                   header. Verify this signature using your Webhook Secret to
@@ -1090,20 +1091,20 @@ Content-Type: application/json`}
               </div>
 
               <div className="bg-white rounded-xl border border-gray-200 p-5">
-                <p className="text-sm font-medium text-gray-900 mb-3">
+                <p className="text-base font-medium text-gray-900 mb-3">
                   Webhook Events
                 </p>
                 <div className="space-y-4">
                   <div>
                     <div className="flex items-center gap-2 mb-2">
-                      <span className="px-2 py-0.5 text-xs font-bold rounded bg-blue-100 text-blue-700">
+                      <span className="px-2 py-0.5 text-sm font-bold rounded bg-blue-100 text-blue-700">
                         POST
                       </span>
-                      <code className="text-sm font-mono text-gray-900">
+                      <code className="text-base font-mono text-gray-900">
                         balance_check
                       </code>
                     </div>
-                    <p className="text-sm text-gray-500 mb-2">
+                    <p className="text-base text-gray-500 mb-2">
                       Sent when the AI agent needs to verify a user&apos;s
                       balance before placing an order.
                     </p>
@@ -1121,14 +1122,14 @@ Content-Type: application/json`}
                   </div>
                   <div>
                     <div className="flex items-center gap-2 mb-2">
-                      <span className="px-2 py-0.5 text-xs font-bold rounded bg-blue-100 text-blue-700">
+                      <span className="px-2 py-0.5 text-sm font-bold rounded bg-blue-100 text-blue-700">
                         POST
                       </span>
-                      <code className="text-sm font-mono text-gray-900">
+                      <code className="text-base font-mono text-gray-900">
                         charge
                       </code>
                     </div>
-                    <p className="text-sm text-gray-500 mb-2">
+                    <p className="text-base text-gray-500 mb-2">
                       Sent when a payment is processed for an order.
                     </p>
                     <CodeBlock
@@ -1149,10 +1150,10 @@ Content-Type: application/json`}
               </div>
 
               <div className="bg-white rounded-xl border border-gray-200 p-5">
-                <p className="text-sm font-medium text-gray-900 mb-2">
+                <p className="text-base font-medium text-gray-900 mb-2">
                   Expected Response
                 </p>
-                <p className="text-sm text-gray-500 mb-3">
+                <p className="text-base text-gray-500 mb-3">
                   Your webhook endpoint should respond with a JSON body
                   indicating success:
                 </p>
@@ -1185,7 +1186,7 @@ Content-Type: application/json`}
             {/* Errors & Status Codes */}
             <Section id="errors" title="Errors & Status Codes">
               <div className="bg-white rounded-xl border border-gray-200 p-5">
-                <p className="text-sm font-medium text-gray-900 mb-3">
+                <p className="text-base font-medium text-gray-900 mb-3">
                   HTTP Status Codes
                 </p>
                 <div className="space-y-2">
@@ -1200,21 +1201,21 @@ Content-Type: application/json`}
                     { code: "500", label: "Server Error", desc: "Something went wrong on our end", color: "bg-red-100 text-red-700" },
                   ].map((s) => (
                     <div key={s.code} className="flex items-center gap-3">
-                      <span className={`px-2 py-0.5 text-xs font-bold rounded ${s.color} w-10 text-center flex-shrink-0`}>
+                      <span className={`px-2 py-0.5 text-sm font-bold rounded ${s.color} w-10 text-center flex-shrink-0`}>
                         {s.code}
                       </span>
-                      <span className="text-sm font-medium text-gray-900 w-28 flex-shrink-0">{s.label}</span>
-                      <span className="text-sm text-gray-500">{s.desc}</span>
+                      <span className="text-base font-medium text-gray-900 w-28 flex-shrink-0">{s.label}</span>
+                      <span className="text-base text-gray-500">{s.desc}</span>
                     </div>
                   ))}
                 </div>
               </div>
 
               <div className="bg-white rounded-xl border border-gray-200 p-5">
-                <p className="text-sm font-medium text-gray-900 mb-3">
+                <p className="text-base font-medium text-gray-900 mb-3">
                   Error Response Format
                 </p>
-                <p className="text-sm text-gray-500 mb-3">
+                <p className="text-base text-gray-500 mb-3">
                   All error responses follow a consistent JSON structure:
                 </p>
                 <CodeBlock
@@ -1228,7 +1229,7 @@ Content-Type: application/json`}
               </div>
 
               <div className="bg-white rounded-xl border border-gray-200 p-5">
-                <p className="text-sm font-medium text-gray-900 mb-3">
+                <p className="text-base font-medium text-gray-900 mb-3">
                   WebSocket Close Codes
                 </p>
                 <div className="space-y-2">
@@ -1239,20 +1240,20 @@ Content-Type: application/json`}
                     { code: "4029", desc: "Rate limited — too many messages" },
                   ].map((s) => (
                     <div key={s.code} className="flex items-center gap-3">
-                      <code className="text-xs font-mono bg-gray-100 text-gray-800 px-2 py-1 rounded flex-shrink-0">
+                      <code className="text-sm font-mono bg-gray-100 text-gray-800 px-2 py-1 rounded flex-shrink-0">
                         {s.code}
                       </code>
-                      <span className="text-sm text-gray-600">{s.desc}</span>
+                      <span className="text-base text-gray-600">{s.desc}</span>
                     </div>
                   ))}
                 </div>
               </div>
 
               <div className="bg-blue-50 border border-blue-100 rounded-xl p-4">
-                <p className="text-sm text-blue-800 font-medium mb-1">
+                <p className="text-base text-blue-800 font-medium mb-1">
                   Rate Limits
                 </p>
-                <p className="text-sm text-blue-700 leading-relaxed">
+                <p className="text-base text-blue-700 leading-relaxed">
                   REST API: <strong>100 requests/minute</strong> per API key.
                   WebSocket: <strong>30 messages/minute</strong> per connection.
                   If you need higher limits, <Link href="/contact" className="underline font-medium">contact us</Link>.
@@ -1509,17 +1510,17 @@ def handle_webhook():
 
       {/* ── Footer ─────────────────────────────────────── */}
       <footer className="border-t bg-gray-50 px-6 py-12 mt-auto">
-        <div className="max-w-6xl mx-auto">
+        <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {/* Brand */}
             <div className="col-span-2 md:col-span-1">
               <div className="flex items-center gap-2 mb-4">
-                <div className="w-7 h-7 rounded-md bg-gradient-to-br from-emerald-600 to-teal-600 flex items-center justify-center text-white text-xs font-bold">
-                  F
+                <div className="w-7 h-7 rounded-md bg-gradient-to-br from-emerald-600 to-teal-600 flex items-center justify-center text-white text-sm font-bold">
+                  S
                 </div>
                 <span className="font-bold text-gray-900">ShopAgent</span>
               </div>
-              <p className="text-sm text-gray-500 leading-relaxed">
+              <p className="text-base text-gray-500 leading-relaxed">
                 AI shopping agent platform. Add voice-powered commerce to any
                 app with a simple API.
               </p>
@@ -1527,10 +1528,10 @@ def handle_webhook():
 
             {/* Platform */}
             <div>
-              <h4 className="text-sm font-semibold text-gray-900 mb-4">
+              <h4 className="text-base font-semibold text-gray-900 mb-4">
                 Platform
               </h4>
-              <ul className="space-y-2.5 text-sm text-gray-500">
+              <ul className="space-y-2.5 text-base text-gray-500">
                 <li>
                   <Link
                     href="/portal/login"
@@ -1560,10 +1561,10 @@ def handle_webhook():
 
             {/* Legal */}
             <div>
-              <h4 className="text-sm font-semibold text-gray-900 mb-4">
+              <h4 className="text-base font-semibold text-gray-900 mb-4">
                 Legal
               </h4>
-              <ul className="space-y-2.5 text-sm text-gray-500">
+              <ul className="space-y-2.5 text-base text-gray-500">
                 <li>
                   <Link
                     href="/terms"
@@ -1593,23 +1594,34 @@ def handle_webhook():
 
             {/* Connect */}
             <div>
-              <h4 className="text-sm font-semibold text-gray-900 mb-4">
+              <h4 className="text-base font-semibold text-gray-900 mb-4">
                 Connect
               </h4>
-              <ul className="space-y-2.5 text-sm text-gray-500">
+              <ul className="space-y-2.5 text-base text-gray-500">
                 <li>
-                  <Link
-                    href="/contact"
-                    className="hover:text-gray-900 transition"
-                  >
-                    Support
-                  </Link>
+                  <a href="https://github.com/codewithmuh/shopagent" target="_blank" rel="noopener noreferrer" className="hover:text-gray-900 transition">
+                    GitHub
+                  </a>
                 </li>
                 <li>
-                  <span className="text-gray-400">X (Twitter)</span>
+                  <a href="https://youtube.com/@codewithmuh" target="_blank" rel="noopener noreferrer" className="hover:text-gray-900 transition">
+                    YouTube
+                  </a>
                 </li>
                 <li>
-                  <span className="text-gray-400">Discord</span>
+                  <a href="https://codewithmuh.com" target="_blank" rel="noopener noreferrer" className="hover:text-gray-900 transition">
+                    Website
+                  </a>
+                </li>
+                <li>
+                  <a href="https://www.linkedin.com/in/muhammad-rashid-daha/" target="_blank" rel="noopener noreferrer" className="hover:text-gray-900 transition">
+                    LinkedIn
+                  </a>
+                </li>
+                <li>
+                  <a href="mailto:contact@codewithmuh.com" className="hover:text-gray-900 transition">
+                    contact@codewithmuh.com
+                  </a>
                 </li>
               </ul>
             </div>
@@ -1617,10 +1629,13 @@ def handle_webhook():
 
           {/* Bottom bar */}
           <div className="mt-10 pt-6 border-t border-gray-200 flex flex-col sm:flex-row justify-between items-center gap-3">
-            <p className="text-sm text-gray-400">
-              &copy; 2026 ShopAgent. All rights reserved.
+            <p className="text-base text-gray-400">
+              &copy; 2026 ShopAgent · Built by{" "}
+              <a href="https://codewithmuh.com" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-gray-700">
+                CodeWithMuh
+              </a>
             </p>
-            <div className="flex gap-6 text-sm text-gray-400">
+            <div className="flex gap-6 text-base text-gray-400">
               <Link
                 href="/terms"
                 className="hover:text-gray-700 transition"

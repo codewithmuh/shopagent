@@ -12,7 +12,7 @@ export default function TermsPage() {
         <div className="max-w-4xl mx-auto flex items-center justify-between">
           <Link href="/" className="flex items-center gap-2">
             <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-emerald-600 to-teal-600 flex items-center justify-center text-white text-sm font-bold">
-              F
+              S
             </div>
             <span className="text-xl font-bold tracking-tight">
               ShopAgent

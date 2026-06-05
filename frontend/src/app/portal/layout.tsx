@@ -60,13 +60,13 @@ export default function PortalLayout({
   if (isAuthPage) return <>{children}</>;
 
   return (
-    <div className="h-screen flex bg-gray-50">
+    <div className="h-screen flex bg-app-gradient">
       {/* Sidebar */}
-      <aside className="w-64 bg-white border-r border-gray-200 flex flex-col flex-shrink-0 overflow-y-auto">
+      <aside className="w-64 glass border-r border-gray-200 flex flex-col flex-shrink-0 overflow-y-auto">
         <div className="px-5 py-5 border-b border-gray-100">
           <Link href="/portal/dashboard" className="flex items-center gap-2">
             <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-emerald-600 to-teal-600 flex items-center justify-center text-white text-sm font-bold">
-              K
+              S
             </div>
             <span className="font-bold text-gray-900">
               ShopAgent <span className="text-emerald-600">Portal</span>

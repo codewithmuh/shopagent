@@ -20,7 +20,7 @@ export default function ContactPage() {
         <div className="max-w-4xl mx-auto flex items-center justify-between">
           <Link href="/" className="flex items-center gap-2">
             <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-emerald-600 to-teal-600 flex items-center justify-center text-white text-sm font-bold">
-              F
+              S
             </div>
             <span className="text-xl font-bold tracking-tight">
               ShopAgent
@@ -54,7 +54,7 @@ export default function ContactPage() {
                 </div>
                 <div>
                   <p className="font-medium text-gray-900">Email</p>
-                  <p className="text-sm text-gray-500 mt-0.5">support@example.com</p>
+                  <a href="mailto:contact@codewithmuh.com" className="text-sm text-emerald-600 hover:underline mt-0.5 inline-block">contact@codewithmuh.com</a>
                 </div>
               </div>
 
@@ -81,8 +81,16 @@ export default function ContactPage() {
                   </svg>
                 </div>
                 <div>
-                  <p className="font-medium text-gray-900">Social</p>
-                  <p className="text-sm text-gray-500 mt-0.5">Follow us on X (Twitter) and Discord</p>
+                  <p className="font-medium text-gray-900">Follow CodeWithMuh</p>
+                  <p className="text-sm text-gray-500 mt-0.5">
+                    <a href="https://github.com/codewithmuh/shopagent" target="_blank" rel="noopener noreferrer" className="text-emerald-600 hover:underline">GitHub</a>
+                    {" · "}
+                    <a href="https://youtube.com/@codewithmuh" target="_blank" rel="noopener noreferrer" className="text-emerald-600 hover:underline">YouTube</a>
+                    {" · "}
+                    <a href="https://www.linkedin.com/in/muhammad-rashid-daha/" target="_blank" rel="noopener noreferrer" className="text-emerald-600 hover:underline">LinkedIn</a>
+                    {" · "}
+                    <a href="https://codewithmuh.com" target="_blank" rel="noopener noreferrer" className="text-emerald-600 hover:underline">codewithmuh.com</a>
+                  </p>
                 </div>
               </div>
             </div>

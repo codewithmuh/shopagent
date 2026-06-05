@@ -44,7 +44,7 @@ export default function PortalLoginPage() {
       <div className="hidden lg:flex lg:w-1/2 bg-gradient-to-br from-emerald-600 via-emerald-700 to-teal-800 text-white flex-col justify-between p-12">
         <Link href="/" className="flex items-center gap-2">
           <div className="w-10 h-10 rounded-xl bg-white/20 flex items-center justify-center text-lg font-bold backdrop-blur-sm">
-            K
+            S
           </div>
           <span className="text-2xl font-bold">ShopAgent Portal</span>
         </Link>
@@ -67,7 +67,7 @@ export default function PortalLoginPage() {
         <div className="w-full max-w-md">
           <div className="lg:hidden flex items-center gap-2 mb-10">
             <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-emerald-600 to-teal-600 flex items-center justify-center text-white text-sm font-bold">
-              K
+              S
             </div>
             <span className="text-xl font-bold">ShopAgent Portal</span>
           </div>

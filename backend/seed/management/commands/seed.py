@@ -89,6 +89,18 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
         self.stdout.write("Seeding database...")
 
+        # ── Create Django admin superuser (for /admin) ───────────────
+        admin_email = "admin@shopagent.dev"
+        if not Merchant.objects.filter(email=admin_email).exists():
+            Merchant.objects.create_superuser(
+                email=admin_email,
+                password="demo1234",
+                business_name="ShopAgent Admin",
+            )
+            self.stdout.write(f"  Created admin superuser: {admin_email} / demo1234")
+        else:
+            self.stdout.write(f"  Admin superuser exists: {admin_email}")
+
         # ── Create demo company ──────────────────────────────────────
         demo_company, created = Company.objects.get_or_create(
             contact_email="demo@acme.com",

@@ -49,7 +49,7 @@ export default function DemoSignupPage() {
         {/* Logo */}
         <div className="text-center mb-8">
           <div className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-gradient-to-br from-emerald-600 to-teal-600 text-white text-2xl font-bold shadow-lg shadow-emerald-500/25 mb-4">
-            K
+            A
           </div>
           <h1 className="text-2xl font-bold text-gray-900">Create Account</h1>
           <p className="text-sm text-gray-500 mt-1">

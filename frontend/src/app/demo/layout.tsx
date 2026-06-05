@@ -15,26 +15,29 @@ export default function DemoLayout({ children }: { children: React.ReactNode }) 
   const [user, setUser] = useState<DemoUser | null>(null);
   const [loaded, setLoaded] = useState(false);
 
+  // Re-read auth on every navigation. The layout persists across /demo/*
+  // route changes, so we must re-check localStorage on pathname change —
+  // otherwise a fresh login (set on the login page) is never picked up here.
   useEffect(() => {
+    let parsed: DemoUser | null = null;
     const raw = localStorage.getItem("demo_user");
     if (raw) {
       try {
-        setUser(JSON.parse(raw));
+        parsed = JSON.parse(raw);
       } catch {
-        // ignore malformed data
+        parsed = null;
       }
     }
+    setUser(parsed);
     setLoaded(true);
-  }, []);
 
-  // Auth guard: redirect to login if no user and not on auth pages
-  useEffect(() => {
-    if (!loaded) return;
+    // Auth guard: redirect to login if no user and not on an auth page.
+    // Guard on the freshly-read value (not the `user` state) to avoid a race.
     const isAuthPage = pathname === "/demo/login" || pathname === "/demo/signup";
-    if (!user && !isAuthPage) {
+    if (!parsed && !isAuthPage) {
       router.replace("/demo/login");
     }
-  }, [loaded, user, pathname, router]);
+  }, [pathname, router]);
 
   function handleLogout() {
     localStorage.removeItem("demo_user");
@@ -60,12 +63,12 @@ export default function DemoLayout({ children }: { children: React.ReactNode }) 
   return (
     <div className="h-dvh flex flex-col bg-gray-50">
       {/* ── Top Navigation Bar ─────────────────────────────────── */}
-      <header className="flex-shrink-0 bg-white border-b border-gray-100 px-4 sm:px-6 h-14 flex items-center justify-between z-20">
+      <header className="flex-shrink-0 glass border-b border-gray-100 px-4 sm:px-6 h-14 flex items-center justify-between z-20">
         {/* Left: Logo + Badge */}
         <div className="flex items-center gap-3">
           <Link href="/demo/chat" className="flex items-center gap-2.5">
             <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-emerald-600 to-teal-600 flex items-center justify-center text-white text-xs font-bold shadow-sm">
-              K
+              A
             </div>
             <span className="font-bold text-gray-900 hidden sm:inline">
               Acme

@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="196" height="44" viewBox="0 0 196 44" fill="none" role="img" aria-label="ShopAgent">
+  <defs>
+    <linearGradient id="sa" x1="8" y1="8" x2="36" y2="36" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#10b981"/>
+      <stop offset="1" stop-color="#0d9488"/>
+    </linearGradient>
+  </defs>
+  <!-- mark -->
+  <g transform="translate(8 8) scale(0.875)">
+    <rect width="32" height="32" rx="7" fill="url(#sa)"/>
+    <path d="M12.5 14.5v-1.3a3.5 3.5 0 0 1 7 0v1.3" fill="none" stroke="#ffffff" stroke-width="1.7" stroke-linecap="round"/>
+    <path d="M11.5 14.3H20.5L22 22.8a2.2 2.2 0 0 1-2.2 2.4H12.2a2.2 2.2 0 0 1-2.2-2.4Z" fill="#ffffff"/>
+    <g fill="#0d9488">
+      <circle cx="13.7" cy="19.8" r="1"/>
+      <circle cx="16" cy="19.8" r="1"/>
+      <circle cx="18.3" cy="19.8" r="1"/>
+    </g>
+  </g>
+  <!-- wordmark -->
+  <text x="48" y="30" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="23" font-weight="700" letter-spacing="-0.5">
+    <tspan fill="#0f172a">Shop</tspan><tspan fill="#0d9488">Agent</tspan>
+  </text>
+</svg>
